@@ -817,15 +817,7 @@ module.exports = {
 
     },
 
-    /*****  */
-    /*
-    *4. 
-    *
-    *@purpose: 
-    *@description: 
-    *@function: 
-    * 
-    */
+    
     binarySearchInt(arr, searchInt) {
         try {
             var low = 0;
@@ -835,6 +827,9 @@ module.exports = {
                 *calculates middle value
                 */
                 var mid = low + Math.floor((high - low) / 2);
+                /*
+                *checks if int value is in that position
+                */
                 if (Number(arr[mid]) == searchInt)
                     return true;
                 else if (Number(arr[mid]) < searchInt)
@@ -852,12 +847,18 @@ module.exports = {
     binarySearchString(arr, string) {
         try {
             arr.sort();
+            console.log(arr);
+            
             var low = 0;
             var high = arr.length - 1;
             while (low <= high) {
-                var mid = low - Math.floor((high - low) / 2);
-
-
+                 /*
+                *calculates middle value
+                */
+                var mid = low + Math.floor((high - low) / 2);
+                /*
+                *checks if string value is in that position
+                */
                 if (arr[mid] == string)
                     return true;
                 else if (arr[mid] < string)
@@ -915,11 +916,12 @@ module.exports = {
 
     /***** Binary Search Word *****/
     /*
-    *
     *6. Binary Search Word
-    * 
-    * 
-    * 
+    *
+    *@purpose: Print the result if the word is found or not. 
+    *@description: Read in the list words comma separated from a file and then enter the word to be searched. 
+    *@function: Read in a list of words from File. Then prompt the user to enter a word to
+    *           search the list. The program reports if the search word is found in the list. 
     * 
     */
     binarySearchFile() {
@@ -928,10 +930,10 @@ module.exports = {
             var search = readline.question("Enter the word to search : ");
             const fs = require('fs');
             fs.readFile('file.txt', (err, data) => {
-                if (err) throw err;
-
+                if (err) 
+                throw err;
                 arr = data.toLocaleString().split(",");
-                console.log(this.binarySearchString(arr, search));
+                console.log(this.binarySearchString(arr,search));
 
             })
         } catch (error) {
@@ -1013,6 +1015,104 @@ module.exports = {
         }
     },
 
+    /***** Merge Sort *****/
+    /*
+    *9. Merge Sort
+    *
+    *@purpose: To do merge sort of list of strings. 
+    *@description: To Merge Sort an array, we divide it into two halves, sort the two halves
+    *              independently, and then merge the results to sort the full array. 
+    *@function: To sort a[lo, hi),we use the following recursive strategy: 
+    *           Base case: If the subarray length is 0 or 1, it is already sorted.
+    *           Reduction step: Otherwise, compute mid = lo + (hi ­ lo) / 2, recursively sort the
+    *           two subarrays a[lo, mid) and a[mid, hi), and merge them to produce a sorted result.
+    * 
+    */
+   mergeSort(arr)
+   {
+    try {
+        var n = arr.length;
+        //checks if size is less than 2
+        if(n<2)
+        {
+            return;
+        }
+        //claculates middle value
+        var mid = Math.floor(n/2);
+        var left = [mid];
+        var right = [n-mid];
+        /*
+        *splits array into halves
+        */
+        for(let i=0;i<mid;i++)
+        {
+            left[i] = arr[i];
+        }
+        for(let j=mid;j<n;j++)
+        {
+            right[j-mid] = arr[j];
+        }
+        /*
+        *splits till there is no more to split
+        */
+        this.mergeSort(left);
+        /*
+        *call mergeSort function for left half
+        */
+        this.mergeSort(right);
+        /*
+        *call mergeSort function for right half
+        */
+        this.merge(left,right,arr);
+        /*
+        *call merge function to merge the array
+        */
+
+    } catch (error) {
+        console.log(error.message);
+        
+    }
+   },
+   merge(arr,brr,crr)
+   {
+       try {
+            var i=0,j=0,k=0;
+            while(i<arr.length && j<brr.length)
+            {/*
+              *checks if left half element is less than right half element.
+              *if yes add the left half element to the final array.
+              *if no add the right half element to the final array.
+              */
+                if(arr[i]<=brr[j])
+                {
+                    crr[k] = arr[i];
+                    i++;
+                }
+                else{
+                    crr[k] = brr[j];
+                    j++;
+                }
+                k++;
+            }       
+            while(i<arr.length)
+            {
+                crr[k] = arr[i];
+                i++;
+                k++;
+            } 
+            while(j<brr.length)
+            {
+                crr[k] = brr[j];
+                j++;
+                k++;
+            }
+            return crr;
+       } catch (error) {
+           console.log(error.message);
+           
+       }
+   },
+
     /***** Vending Machine *****/
     /*
     *10. Vending Machine
@@ -1036,6 +1136,9 @@ module.exports = {
                 for (let i = 0; i < notes.length; i++) {
                     if (amount >= notes[i]) {
                         var calcNotes = Math.floor(amount / notes[i]);
+                        /*
+                        *calculates the number of notes
+                        */
                         total = total + calcNotes;
 
                         console.log(notes[i] + " Notes -> " + calcNotes);
@@ -1242,10 +1345,11 @@ module.exports = {
     /*
     *15. To Binary
     *
-    * 
-    * 
-    * 
-    * 
+    *@purpose: toBinary that outputs the binary (base 2) representation of the decimal number typed as the input. 
+    *@description: It is based on decomposing the number into a sum of powers of 2. 
+    *@function: Ensure necessary padding to represent 4 Byte String. 
+    *           consider the powers of 2 less than or equal to n in 
+    *           decreasing order to determine which belong in the binary decomposition.
     * 
     */
     toBinary(num) {
