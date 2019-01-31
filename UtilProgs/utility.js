@@ -17,7 +17,7 @@ const readline = require('readline-sync');
 */
 
 module.exports = {
-    /*************************Functional Programs********************/
+    /************************* Functional Programs ********************/
     /***** Replace String *****/
     /*
      *1.Replace String
@@ -803,9 +803,9 @@ module.exports = {
 
         }
     },
-    /*************************Functional Programs********************/
+    /************************* Functional Programs ********************/
 
-    /*************************Algorithm Programs********************/
+    /************************* Algorithm Programs ********************/
     /***** Anagram Detection *****/
     /*
      *1. Anagram Detection
@@ -1522,7 +1522,7 @@ module.exports = {
 
         }
     },
-
+    /***************************** Algorithm Programs *********************/
 
 
 
