@@ -19,7 +19,7 @@ var read = require('readline-sync');
 /*
  *accepts userinput
 */
-var num=read.question("Enter number of distinct coupon number : ");
+var num = read.questionInt("Enter number of distinct coupon number : ");
 /*
  *invokes getCouponNumbers function from utility.js
  */

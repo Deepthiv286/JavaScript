@@ -19,7 +19,7 @@ var read = require('readline-sync');
 /*
  *accepts userinput
 */
-var username=read.question("Enter your name to replace username : ");
+var username = read.question("Enter your name to replace username : ");
 /*
  *invokes getStringReplace function from utility.js
  */

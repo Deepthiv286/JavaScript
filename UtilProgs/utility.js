@@ -25,33 +25,29 @@ module.exports = {
      *@purpose: Replace the username with userinput.
      *@description: Pass the name from userinput as arguement to the declared function.
      *@function: Accepts input from the user,checks if it is more than 3 characters 
-     *           and is not a number then displays the string with userinput. 
+     *           and is not a number,then displays the string with userinput. 
      * 
     */
     getStringReplace(username) //takes userinput
     {
         try {
+            var format = /[a-zA-Z]/;
             //checks if it has minimun 3 characters and is not a number
-            if (username.length >= 3 && isNaN(username)) {
+            if (username.length >= 3 && isNaN(username) && format.test(username)) {
                 var input = "Hello <<username>> , how are you?";
                 /*
                 *replaces username with userinput
                 */
                 var output = input.replace(/<<username>>/g, username); //Regex
                 console.log(output);
-
-
             }
             else {
-                console.log("enter name more than three characters");
-
+                console.log("enter name more than three characters..should not be a number");
             }
         }
         catch (error) {
             console.log(error.message);
         }
-
-
     },
 
     /***** Flip coins *****/
@@ -101,8 +97,6 @@ module.exports = {
             console.log("Percentage of tail = " + PercentageOfTail + "%");
             var PercentageOfHead = (100 - PercentageOfTail);
             console.log("Percentage of head = " + PercentageOfHead + "%");
-
-
         }
         catch (error) {
             console.log(error.message);
@@ -121,18 +115,21 @@ module.exports = {
      * 
      * 
     */
-    isLeapYear(year) {//accepts userinput
+    isLeapYear(year) {//takes userinput
         try {
-            //checks if the userinput is a 4 digit number
+            /*
+            *checks if the userinput is a 4 digit number
+            */
             if (year.length == 4 && year > 0 && !isNaN(year)) {
-                //checks if the userinput is a leap year
+                /*
+                *checks if the userinput is a leap year
+                */
                 if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
                     console.log("It is a leap year");
                 }
                 else {
                     console.log("It is not a leap year");
                 }
-
             }
             else {
                 console.log("Enter a 4 digit number");
@@ -157,10 +154,16 @@ module.exports = {
      * 
     */
     getPowerOfTwo() {
-        try {//takes command-line arguement
+        try {
+            var format = /[0-9]/;
+            /*
+            *takes command-line arguement
+            */
             var num = process.argv[2];
-            //checks if the number lies between 0 and 31 
-            if (num >= 0 && num < 31 && !isNaN(num)) {
+            /*
+            *checks if the number lies between 0 and 31
+            */
+            if (num >= 0 && num < 31 && !isNaN(num) && format.test(num)) {
                 /*
                 *loops till i reaches the given number
                 */
@@ -173,9 +176,8 @@ module.exports = {
                 }
             }
             else {
-                console.log("Enter power value 0<=N<31(between 0 to 31)");
+                console.log("Enter power value 0<=N<31(between 0 to 31)...should be a number only");
             }
-
         }
         catch (error) {
             console.log(error.message);
@@ -195,12 +197,17 @@ module.exports = {
      * 
      * 
     */
-    getHarmonicValue(num) {//accepts userinput
-        try {//initializing sum as 0
+    getHarmonicValue(num) {//takes userinput
+        try {
+            /*
+            *initializing sum as 0
+            */
             var sum = 0;
-            //checks if it a number and it is not equal to zero
+            //checks if it is a number and it is not equal to zero
             if (num != 0 && !isNaN(num)) {
-                //loops till i reaches the given number
+                /*
+                *loops till i reaches the given number
+                */
                 for (let i = 1; i <= num; i++) {
                     /*
                     *performes addition of previous sum with 1/i value
@@ -211,17 +218,12 @@ module.exports = {
                 console.log("The nth harmonic number is : " + sum);
             }
             else {
-                console.log("Enter a number more than 0");
+                console.log("Enter a number greater than 0");
             }
-
-
         }
         catch (error) {
             console.log(error.message);
         }
-
-
-
     },
 
 
@@ -237,7 +239,7 @@ module.exports = {
      * 
      * 
     */
-    getPrimeFactors(num) //accepts userinput
+    getPrimeFactors(num) //takes userinput
     {
         try {
             /*
@@ -250,7 +252,6 @@ module.exports = {
                 while (num % i == 0) {
                     console.log(i);
                     num /= i;
-
                 }
                 //checks if the number is greater than 2 and prints it
                 if (num > 2) {
@@ -292,19 +293,13 @@ module.exports = {
                     if (random > 0.5) {
                         stake++;
                         win++
-
                     }
                     else {
                         stake--;
                         loss++;
-
                     }
-
                 }
-
             }
-
-
             console.log("Number of wins = " + win);
             /*
             *calculates the percentage of win and loss
@@ -316,9 +311,7 @@ module.exports = {
         }
         catch (error) {
             console.log(error.message);
-
         }
-
     },
 
     /***** Coupon Numbers *****/
@@ -335,13 +328,15 @@ module.exports = {
     getCouponNumbers(num) {
         try {//initializing count as 0
             var count = 0;
-            //initializing an empty array
+            /*
+            *initializing an empty array
+            */
             var arr = [];
             while (count < num) {//repeats till count is less than the given number
                 /*
-                *generates random numbers between 1-100;
+                *generates random numbers between 1-10000;
                 */
-                var random = Math.round(Math.random() * 100);
+                var random = Math.round(Math.random() * 10000);
                 if (!arr.includes(random)) {
                     /*
                     *checks if the random value already exists in the array
@@ -392,7 +387,6 @@ module.exports = {
         }
         catch (error) {
             console.log(error.message);
-
         }
     },
 
@@ -424,17 +418,14 @@ module.exports = {
                             }
                         }
                     }
-
                 }
             }
             else {
                 console.log("enter atleast one");
-
             }
         }
         catch (error) {
             console.log(error.message);
-
         }
     },
 
@@ -450,19 +441,24 @@ module.exports = {
      * 
      */
     printDistance() {
-        try {/*
-        *accepts command-line arguments for x and y value
-        */
+        try {
+            var format = /[0-9]/;
+            /*
+            *accepts command-line arguments for x and y value
+            */
             var x = process.argv[2];
             var y = process.argv[3];
-            //calculate euclidean distance using distance formula
-            var distance = Math.sqrt((x * x) + (y * y));
-
-            console.log("Euclidean distance is : " + distance);
+            if (format.test(x) && format.test(y)) {
+                //calculate euclidean distance using distance formula
+                var distance = Math.sqrt((x * x) + (y * y));
+                console.log("Euclidean distance is : " + distance);
+            }
+            else {
+                console.log("Enter numbers only");
+            }
         }
         catch (error) {
             console.log(error.message);
-
         }
     },
 
@@ -470,31 +466,48 @@ module.exports = {
     /*
      *12. Permutation Of A String
      *
-     * 
-     * 
-     * 
-     * 
+     *@purpose: To return all permutation of a string using iterative method and recursion method. 
+     *@description: Pass a string as arguement to a function 
+     *@function: Check if the arrays returned by two string functions are equal. 
+     *           Return all permutation of a string.
      * 
      * 
     */
-    permutation(perm, str) {
+    getPermutation(str) {
         try {
-            if (str.length != 0) {
-                for (let i = 0; i < str.length; i++) {
-                    var str1 = perm + str.charAt(i);
-                    var perm1 = str.substring(0, i) + str.substring(i + 1);
-
-                    return permutation(str1, perm1);
+            var format = /[a-zA-Z]/;
+            if (format.test(str)) {
+                /*
+            *creates an empty array
+            */
+                var arr = [];
+                /*
+                *checks if the string length is equal to 1.
+                *if yes then adds the string to the array and returns it
+                */
+                if (str.length == 1) {
+                    arr.push(str);
+                    return str;
                 }
+                /*
+                *if the string length is not equal to 1 then string is permuted recursively
+                */
+                for (let i = 0; i < str.length; i++) {
+                    var firstChar = str[i];
+                    var perm1 = str.substring(0, i) + str.substring(i + 1);
+                    var permutation = this.getPermutation(perm1);
+                    for (let j = 0; j < permutation.length; j++) {
+                        arr.push(firstChar + permutation[j]);
+                    }
+                }
+                return arr;
             }
             else {
-                console.log(str);
-
+                console.log("Enter string only");
             }
         }
         catch (error) {
             console.log(error.message);
-
         }
     },
 
@@ -532,11 +545,9 @@ module.exports = {
             *calculate the elapsed time by taking the difference between the two times
             */
             console.log("Elapsed time = " + (stop - start) + "secs");
-
         }
         catch (error) {
             console.log(error.message);
-
         }
     },
 
@@ -544,23 +555,165 @@ module.exports = {
     /*
      *14.Tic-Tac-Toe Game
      *
+     *@purpose: To play a cross game or tic-tac-toe game. 
+     *@description: Take userinput for the cell i.e. col and row to mark the ‘X’ 
+     *              Player 1 is the computer and the player 2 is the user. Player 1 take random cell that is the column and row.
+     *@function: The user or the computer can only take the unoccupied cell. The game
+     *           is played till either wins or till draw.Print the col and the cell after every step. 
      * 
      * 
-     * 
-     * 
-     * 
-     * 
-    */
-    ticTacToeGame() {
+     */
+    deployGame() {
         try {
-
-        }
-        catch (error) {
+            /*
+            *initializing an empty array
+            */
+            var game = [];
+            for (let i = 0; i <= 2; i++) {
+                /*
+                *loops and adds "-" to all the rows and columns
+                */
+                game.push([]);
+                for (let j = 0; j <= 2; j++)
+                    game[i][j] = '-';
+            }
+            return game;
+        } catch (error) {
             console.log(error.message);
-
         }
     },
 
+    random() {
+        /*
+        *function to generate random value
+        */
+        try {
+            var value = Math.floor(Math.random() * 3);
+            console.log(value + 1);
+            return value;
+        } catch (error) {
+            console.log(error.message);
+
+        }
+
+    },
+
+    mark(game, x, y, value) {
+        /*
+        *function to mark the game with the value
+        */
+        try {
+            if (game[x][y] == '-')
+                game[x][y] = value;
+            for (let i = 0; i <= 2; i++) {
+                var print = [];
+                for (let j = 0; j <= 2; j++)
+                    print[j] = game[i][j];
+                console.log(print);
+            }
+            return game;
+        } catch (error) {
+            console.log(error.message);
+
+        }
+
+    }
+    ,
+    computerPlayer(game) {
+        /*
+        *function for the computer to play the game
+        */
+        try {
+            var arr;
+            var flag = false;
+            while (flag == false) {
+                /*
+                *repeats till the flag is equal to false
+                */
+                var x = this.random();
+                var y = this.random();
+                if (game[x][y] == '-') {
+                    arr = this.mark(game, x, y, 'O');
+                    /*
+                    *marking "O" in that position
+                    */
+                    flag = true;
+                }
+            }
+            return game;
+        } catch (error) {
+            console.log(error.message);
+
+        }
+
+    },
+    userPlayer(game) {
+        /*
+        *function for the player to play the game
+        */
+        try {
+            var flag = false;
+            while (flag == false) {
+                /*
+                *repeats till the flag is equal to false
+                */
+                console.log("Enter the row value:");
+                let x = readline.questionInt('Enter the value of x within 1,2,3 : ') - 1;
+                let y = readline.questionInt('Enter the value of y within 1,2,3 : ') - 1;
+                if (game[x][y] == '-') {
+                    this.mark(game, x, y, 'X');
+                    /*
+                    *marking "X" in that position
+                    */
+                    flag = true;
+                }
+                else
+                    console.log("Please enter the correct choice");
+            }
+            return game;
+        } catch (error) {
+            console.log(error.message);
+        }
+    },
+    check(game) {
+        /*
+        *function to check how many rows and columns are filled with "O" and "X"
+        */
+        try {
+            for (let i = 0; i <= 2; i++) {
+                if (game[i][0] == game[i][1] && game[i][1] == game[i][2]) {
+                    if (game[i][0] == 'O' || game[i][0] == 'X') {
+                        /*
+                        *checks if "O" and "X" is in that position
+                        */
+                        return true;
+                    }
+                }
+                if (game[0][i] == game[1][i] && game[1][i] == game[2][i]) {
+                    if (game[0][i] == 'O' || game[0][i] == 'X') {
+                        return true;
+                    }
+                }
+            }
+            /*
+            *determines who has won the game:computer or the player
+            */
+            var k = 0, l = 0;
+            if (game[k][k] == game[k + 1][k + 1] && game[k + 1][k + 1] == game[k + 2][k + 2]) {
+                if (game[0][0] == 'O' || game[0][0] == 'X') {
+                    return true;
+                }
+            }
+            if (game[l][l + 2] == game[l + 1][l + 1] && game[l + 1][l + 1] == game[l + 2][l]) {
+                if (game[0][0] == 'O' || game[0][0] == 'X') {
+                    return true;
+                }
+            }
+            return false;
+        } catch (error) {
+            console.log(error.message);
+        }
+    },
 
     /***** Quadtratic *****/
     /*
@@ -583,7 +736,6 @@ module.exports = {
             if (delta == 0) {
                 var d1 = -b / (2 * a);
                 console.log(d1);
-
             }
             /*
             *checks for real and distinct roots
@@ -593,7 +745,6 @@ module.exports = {
                 var root2 = (-b - Math.sqrt(delta)) / (2 * a);
                 console.log(root1);
                 console.log(root2);
-
             }
             /*
             *checks for real and imaginary roots
@@ -606,12 +757,10 @@ module.exports = {
             }
             else {
                 console.log("try again");
-
             }
         }
         catch (error) {
             console.log(error.message);
-
         }
     },
 
@@ -628,16 +777,18 @@ module.exports = {
      * 
     */
     printWindChill() {
-        try {/*
-        *accepts command-line arguements for temperature and velocity.
-        */
+        try {
+            var format = /[0-9]/;
+            /*
+            *accepts command-line arguements for temperature and velocity.
+            */
             var temp = process.argv[2];
             var vel = process.argv[3];
             /*
             *checks if absolute value of temperature is less than 50 and 
             *velocity lies between 3 to 120.
             */
-            if (Math.abs(temp < 50) && vel < 120 && vel > 3) {
+            if (Math.abs(temp < 50) && vel < 120 && vel > 3 && format.test(temp) && format.test(vel)) {
                 //apply windchill formula
                 var w = 35.74 + (0.6215 * temp) + (((0.4275 * temp) - 35.75) * (Math.pow(vel, 0.16)));
                 console.log(w);
@@ -672,13 +823,22 @@ module.exports = {
             /*
             *checks if strings are within the given format
             */
-            if (format.test(string1) && format.test(string2)) {//checks if both strings are of equal length
-                if (string1.length != string2.length) {
-                    result = false;
+            if (format.test(string1) && format.test(string2)) {
+                /*
+                *checks if both strings are of equal length
+                */
+                if (string1.length == string2.length) {
+                    /*
+                *splits the given strings and sorts them
+                */
+                    var sort1 = string1.toString().split("").sort().join("");
+                    var sort2 = string2.toString().split("").sort().join("");
+                    result = sort1 == sort2;
                 }
-                var sort1 = string1.toString().split("").sort().join("");
-                var sort2 = string2.toString().split("").sort().join("");
-                result = sort1 == sort2;
+                else {
+                    console.log("Strings length must be of equal length");
+                }
+
                 /*
                 *checks if one string is an anagram of another
                 */
@@ -690,9 +850,9 @@ module.exports = {
                 }
             }
             else {
-                console.log("Strings length must be of equal length \n Enter only alphabets and letters");
-            }
+                console.log("Enter only string");
 
+            }
         }
         catch (error) {
             console.log(error.message);
@@ -711,26 +871,23 @@ module.exports = {
      * 
     */
     isPrime(num) {
-
         try {
             /*
-            *checks if a number is 0 or 1 
+            *checks if number is equal to 0 or 1
             */
             if (num == 0 || num == 1)
                 return false;
-
             for (let i = 2; i < num; i++) {
-                if (num % i == 0)//checks if the number is divisible by i
-                {
+                /*
+                *checks if the number is divisible by i
+                */
+                if (num % i == 0)
                     return false;
-
-                }
-                return true;
             }
+            return true;
         }
         catch (error) {
             console.log(error.message);
-
         }
     },
     prime() {
@@ -742,7 +899,6 @@ module.exports = {
             for (i = 0; i <= 1000; i++) {
                 if (this.isPrime(i)) {
                     console.log(i);
-
                 }
             }
         }
@@ -764,13 +920,13 @@ module.exports = {
         try {
             var rev = "";
             var num1 = num;
-            while(num!=0)
-            {  /*
+            while (num != 0) {
+                /*
                 *logic to get reverse of a number
                 */
-                var digit = num%10;
-                rev = rev+digit;
-                num = num/10;
+                var digit = num % 10;
+                rev = rev + digit;
+                num = num / 10;
             }
             if (rev == num1) {//checks if reverse of a number is equal to the original number
                 console.log(arr[i] + " is a palindrome");
@@ -803,21 +959,22 @@ module.exports = {
                     if (this.anagram(arr[i], arr[j])) {
                         console.log(arr[i] + " and " + arr[j] + " are anagram");
                         //checks if number is a palindrome
-                    if (this.isNumberPalindrome(arr[i])) {
-                        console.log(arr[i] + " is a palindrome");
+                        if (this.isNumberPalindrome(arr[i])) {
+                            console.log(arr[i] + " is a palindrome");
+                        }
                     }
-                }
                 }
             }
         }
         catch (error) {
             console.log(error.message);
-
         }
-
     },
 
-    
+    /*
+    *function for binary search of integer value
+    */
+
     binarySearchInt(arr, searchInt) {
         try {
             var low = 0;
@@ -840,39 +997,44 @@ module.exports = {
             return false;
         } catch (error) {
             console.log(error.message);
-
         }
     },
 
+    /*
+    *function for binary search of a string
+    */
     binarySearchString(arr, string) {
         try {
-            arr.sort();
-            console.log(arr);
-            
-            var low = 0;
-            var high = arr.length - 1;
-            while (low <= high) {
-                 /*
-                *calculates middle value
-                */
-                var mid = low + Math.floor((high - low) / 2);
-                /*
-                *checks if string value is in that position
-                */
-                if (arr[mid] == string)
-                    return true;
-                else if (arr[mid] < string)
-                    low = mid + 1;
-                else
-                    high = mid - 1;
+            var format = /[a-zA-Z]/;
+            if (format.test(string) && format.test(arr)) {
+                arr.sort();
+                console.log(arr);
 
+                var low = 0;
+                var high = arr.length - 1;
+                while (low <= high) {
+                    /*
+                   *calculates middle value
+                   */
+                    var mid = low + Math.floor((high - low) / 2);
+                    /*
+                    *checks if string value is in that position
+                    */
+                    if (arr[mid] == string)
+                        return true;
+                    else if (arr[mid] < string)
+                        low = mid + 1;
+                    else
+                        high = mid - 1;
+
+                }
+                return false;
             }
-            return false;
-
-
+            else {
+                console.log("Enter string only");
+            }
         } catch (error) {
             console.log(error.message);
-
         }
     },
 
@@ -889,28 +1051,29 @@ module.exports = {
      */
     findYourNumber(low, high, read) {
         try {
-            var middle = low + Math.floor((high - low) / 2);
-            var m;
-            if (low < high) {
-                if (low == high - 1) {
-                    m = read.question("Is the number " + low + " low, If yes type-Yes...if number is high type-No" + " ");
-                    if (m == "Yes")
-                        return low;
-                    if (m == "No")
-                        return high;
+            var format = /[0-9]/;
+            if (format.test(low, high)) {
+                var middle = low + Math.floor((high - low) / 2);
+                var m;
+                if (low < high) {
+                    if (low == high - 1) {
+                        m = read.question("Is the number " + low + " low, If yes type-yes...if number is high type-no" + " ");
+                        if (m == "yes")
+                            return low;
+                        if (m == "no")
+                            return high;
+                    }
+                    m = read.question("Is the number in the range " + middle + "-" + high + " Type yes or no" + " ");
+                    if (m == "yes")
+                        middle = this.findYourNumber(middle, high, read);
+                    if (m == "no")
+                        middle = this.findYourNumber(low, middle - 1, read);
                 }
-                m = read.question("Is the number in the range " + middle + "-" + high + " Type Yes or No" + " ");
-                if (m == "Yes")
-                    middle = this.findYourNumber(middle, high, read);
-                if (m == "No")
-                    middle = this.findYourNumber(low, middle - 1, read);
+                return middle;
             }
-            return middle;
-
         }
         catch (error) {
             console.log(error.message);
-
         }
     },
 
@@ -930,10 +1093,10 @@ module.exports = {
             var search = readline.question("Enter the word to search : ");
             const fs = require('fs');
             fs.readFile('file.txt', (err, data) => {
-                if (err) 
-                throw err;
+                if (err)
+                    throw err;
                 arr = data.toLocaleString().split(",");
-                console.log(this.binarySearchString(arr,search));
+                console.log(this.binarySearchString(arr, search));
 
             })
         } catch (error) {
@@ -1028,90 +1191,81 @@ module.exports = {
     *           two subarrays a[lo, mid) and a[mid, hi), and merge them to produce a sorted result.
     * 
     */
-   mergeSort(arr)
-   {
-    try {
-        var n = arr.length;
-        //checks if size is less than 2
-        if(n<2)
-        {
-            return;
-        }
-        //claculates middle value
-        var mid = Math.floor(n/2);
-        var left = [mid];
-        var right = [n-mid];
-        /*
-        *splits array into halves
-        */
-        for(let i=0;i<mid;i++)
-        {
-            left[i] = arr[i];
-        }
-        for(let j=mid;j<n;j++)
-        {
-            right[j-mid] = arr[j];
-        }
-        /*
-        *splits till there is no more to split
-        */
-        this.mergeSort(left);
-        /*
-        *call mergeSort function for left half
-        */
-        this.mergeSort(right);
-        /*
-        *call mergeSort function for right half
-        */
-        this.merge(left,right,arr);
-        /*
-        *call merge function to merge the array
-        */
+    mergeSort(arr) {
+        try {
+            var n = arr.length;
+            //checks if size is less than 2
+            if (n < 2) {
+                return;
+            }
+            //claculates middle value
+            var mid = Math.floor(n / 2);
+            var left = [mid];
+            var right = [n - mid];
+            /*
+            *splits array into halves
+            */
+            for (let i = 0; i < mid; i++) {
+                left[i] = arr[i];
+            }
+            for (let j = mid; j < n; j++) {
+                right[j - mid] = arr[j];
+            }
+            /*
+            *splits till there is no more to split
+            */
+            this.mergeSort(left);
+            /*
+            *call mergeSort function for left half
+            */
+            this.mergeSort(right);
+            /*
+            *call mergeSort function for right half
+            */
+            this.merge(left, right, arr);
+            /*
+            *call merge function to merge the array
+            */
 
-    } catch (error) {
-        console.log(error.message);
-        
-    }
-   },
-   merge(arr,brr,crr)
-   {
-       try {
-            var i=0,j=0,k=0;
-            while(i<arr.length && j<brr.length)
-            {/*
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
+    merge(arr, brr, crr) {
+        try {
+            var i = 0, j = 0, k = 0;
+            while (i < arr.length && j < brr.length) {/*
               *checks if left half element is less than right half element.
               *if yes add the left half element to the final array.
               *if no add the right half element to the final array.
               */
-                if(arr[i]<=brr[j])
-                {
+                if (arr[i] <= brr[j]) {
                     crr[k] = arr[i];
                     i++;
                 }
-                else{
+                else {
                     crr[k] = brr[j];
                     j++;
                 }
                 k++;
-            }       
-            while(i<arr.length)
-            {
+            }
+            while (i < arr.length) {
                 crr[k] = arr[i];
                 i++;
                 k++;
-            } 
-            while(j<brr.length)
-            {
+            }
+            while (j < brr.length) {
                 crr[k] = brr[j];
                 j++;
                 k++;
             }
             return crr;
-       } catch (error) {
-           console.log(error.message);
-           
-       }
-   },
+        } catch (error) {
+            console.log(error.message);
+
+        }
+    },
 
     /***** Vending Machine *****/
     /*
@@ -1182,9 +1336,9 @@ module.exports = {
             /*
             *takes command-line arguements
             */
-           /*
-           *Using the formula for the Gregorian calendar and calculate the day
-           */
+            /*
+            *Using the formula for the Gregorian calendar and calculate the day
+            */
             var y0 = y - Math.floor((14 - m) / 12);
             var x = y0 + Math.floor(y0 / 4) - Math.floor(y0 / 100) + Math.floor(y0 / 400);
             var m0 = m + 12 * Math.floor((14 - m) / 12) - 2;

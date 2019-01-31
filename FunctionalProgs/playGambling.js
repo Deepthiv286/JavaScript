@@ -19,9 +19,9 @@ var read = require('readline-sync');
 /*
  *accepts userinput
 */
-var stake=read.question("Enter stake amount : ");
-var goal=read.question("Enter goal amount : ");
-var times=read.question("Enter the number of times bets placed : ");
+var stake = read.questionInt("Enter stake amount : ");
+var goal = read.questionInt("Enter goal amount : ");
+var times = read.questionInt("Enter the number of times bets placed : ");
 /*
  *invokes playGambling function from utility.js
  */

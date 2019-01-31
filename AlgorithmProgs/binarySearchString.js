@@ -25,7 +25,7 @@ for(let i=0;i<size;i++)
 {
     arr[i] = read.question("Enter the string array elements : ");
 }
-var string= read.question("Enter a string to search : ");
+var string = read.question("Enter a string to search : ");
 var result = access.binarySearchString(arr,string);
 /*
  *invokes binarySearchString function from utility.js

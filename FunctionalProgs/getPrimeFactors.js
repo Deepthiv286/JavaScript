@@ -11,7 +11,7 @@
  * @since       :24/01/2019
  * 
  ***************************************************************/
-var Access = require('../UtilProgs/utility');
+var access = require('../UtilProgs/utility');
 /*
  *accessing data from utility file
 */
@@ -19,8 +19,8 @@ var read = require('readline-sync');
 /*
  *accepts userinput
 */
-var num=read.question("Enter a number for prime factorization : ");
+var num = read.questionInt("Enter a number for prime factorization : ");
 /*
  *invokes getPrimeFactors function from utility.js
  */
-Access.getPrimeFactors(num);
+access.getPrimeFactors(num);

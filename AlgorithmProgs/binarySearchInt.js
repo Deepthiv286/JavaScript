@@ -20,12 +20,12 @@ var read = require('readline-sync');
 *accepts userinput
 */
 var arr = [];
-var size = read.question("Enter the size of an array : ");
+var size = read.questionInt("Enter the size of an array : ");
 for(let i=0;i<size;i++)
 {
-    arr[i] = read.question("Enter the array elements : ");
+    arr[i] = read.questionInt("Enter the array elements : ");
 }
-var searchInt= read.question("Enter an int value to search : ");
+var searchInt= read.questionInt("Enter an int value to search : ");
 var result = access.binarySearchInt(arr,searchInt);
 /*
  *invokes binarySearchInt function from utility.js

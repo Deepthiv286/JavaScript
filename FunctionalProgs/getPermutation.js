@@ -1,11 +1,11 @@
 /****************************************************************
  * 
- * Execution    :Default node   cmd>node permutation.js
- * Purpose      :To 
+ * Execution    :Default node   cmd>node getPermutation.js
+ * Purpose      :To return all permutation of a string.
  * 
  * @description
- * @file        :permutation.js
- * @overview    :
+ * @file        :getPermutation.js
+ * @overview    :Returns all permutation of a string.
  * @author name :Deepthi V <deepthiv286@gmail.com>
  * @version     :1.0
  * @since       :26/01/2019
@@ -23,7 +23,8 @@ var read = require('readline-sync');
 var str = read.question("Enter a string to be permuted : ");
 
 /*
- *invokes permutation function from utility.js
+ *invokes getPermutation function from utility.js
  */
-var result = access.permutation("",str);
+var result = access.getPermutation(str);
 console.log(result);
+

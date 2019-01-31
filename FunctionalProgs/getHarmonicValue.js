@@ -19,7 +19,7 @@ var read = require('readline-sync');
 /*
  *accepts userinput
 */
-var num=read.question("Enter a number for nth harmonic value : ");
+var num = read.questionInt("Enter a number for nth harmonic value : ");
 /*
  *invokes getHarmonicValue function from utility.js
  */

@@ -24,15 +24,11 @@ while(num!=arr.length)
     var number = read.question("Enter the array elements : ");
     arr.push(number);
 }
-var l = 0;
-var h = arr.length;
-function Merge()
-{
-    /*
+/*
  *invokes mergeSort function from utility.js
  */
-    access.mergeSort(arr);
-    console.log(arr);
+access.mergeSort(arr);
+console.log(arr);
     
-}
-Merge();
+
+

@@ -16,11 +16,11 @@ var access = require('../UtilProgs/utility');
  *accessing data from utility file
 */
 var read = require('readline-sync');
-var row = read.question("Enter the number of rows : ");
-var col = read.question("Enter the number of columns : ");
 /*
 *accepts userinput
 */
+var row = read.questionInt("Enter the number of rows : ");
+var col = read.questionInt("Enter the number of columns : ");
 access.print2DArray(row,col,read);
 /*
  *invokes print2DArray function from utility.js

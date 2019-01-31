@@ -19,9 +19,9 @@ var read = require('readline-sync');
 /*
  *accepts userinput
 */
-var a=read.question("Enter first number 'a': ");
-var b=read.question("Enter second number 'b': ");
-var c=read.question("Enter third number 'c': ");
+var a = read.questionInt("Enter first number 'a': ");
+var b = read.questionInt("Enter second number 'b': ");
+var c = read.questionInt("Enter third number 'c': ");
 /*
  *invokes printQuadraticRoots function from utility.js
  */

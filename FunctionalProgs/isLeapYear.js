@@ -19,7 +19,7 @@ var read = require('readline-sync');
 /*
  *accepts userinput
 */
-var year=read.question("Enter a year to check it is a leapyear or not : ");
+var year = read.questionInt("Enter a year to check it is a leapyear or not : ");
 /*
  *invokes isLeapYear function from utility.js
  */

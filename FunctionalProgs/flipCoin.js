@@ -1,11 +1,11 @@
 /****************************************************************
  * 
- * Execution    :Default node   cmd>node flipCoins.js
+ * Execution    :Default node   cmd>node flipCoin.js
  * Purpose      :Using random function generate random value and print
  *               the percentage of head and tail.
  * 
  * @description
- * @file        :flipCoins.js
+ * @file        :flipCoin.js
  * @overview    :Flip a coin n number of times, check if random value is <0.5 and print percentage of heads and tails.
  * @author name :Deepthi V <deepthiv286@gmail.com>
  * @version     :1.0
@@ -20,7 +20,7 @@ var read = require('readline-sync');
 /*
  *accepts userinput
 */
-var flips=read.question("Enter the number of flips of a coin: ");
+var flips = read.questionInt("Enter the number of flips of a coin: ");
 /*
  *invokes flipCoin function from utility.js
  */
