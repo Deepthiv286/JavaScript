@@ -11,7 +11,7 @@
  * @since       :27/01/2019
  * 
  ***************************************************************/
-var access = require('../UtilProgs/utility');
+var access = require('../UtilProgs/algoUtil');
 /*
  *accessing data from utility file
 */

@@ -11,11 +11,11 @@
  * @since       :30/01/2019
  * 
  ***************************************************************/
-var access = require('../UtilProgs/utility');
+var access = require('../UtilProgs/functionalUtil');
 /*
  *accessing data from utility file
 */
-
+try {
     var flag = false;
     /*
     *initializing flag as false
@@ -68,6 +68,11 @@ var access = require('../UtilProgs/utility');
     }
     console.log("Game Ends");
 
+} catch (error) {
+    console.log(error.message);
+    
+}
+    
 
 
 
