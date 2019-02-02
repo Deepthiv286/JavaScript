@@ -171,9 +171,9 @@ isAnagramPalindrome() {
                 if (this.anagram(arr[i], arr[j])) {
                     console.log(arr[i] + " and " + arr[j] + " are anagram");
                     //checks if number is a palindrome
-                    if (this.isNumberPalindrome(arr[i])) {
+                    /*if (this.isNumberPalindrome(arr[i])) {
                         console.log(arr[i] + " is a palindrome");
-                    }
+                    }*/
                 }
             }
         }
