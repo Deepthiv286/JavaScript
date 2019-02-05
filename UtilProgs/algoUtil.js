@@ -55,7 +55,8 @@ module.exports = {
             *checks if one string is an anagram of another
             */
             if (result == true) {
-                console.log(string1 + " and " + string2 + " are anagram");
+               // console.log(string1 + " " + string2);
+                return true;
             }
             else {
                 return false;
@@ -171,9 +172,9 @@ isAnagramPalindrome() {
                 if (this.anagram(arr[i], arr[j])) {
                     console.log(arr[i] + " and " + arr[j] + " are anagram");
                     //checks if number is a palindrome
-                    /*if (this.isNumberPalindrome(arr[i])) {
+                    if (this.isNumberPalindrome(arr[i])) {
                         console.log(arr[i] + " is a palindrome");
-                    }*/
+                    }
                 }
             }
         }

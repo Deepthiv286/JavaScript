@@ -15,6 +15,7 @@
  ***************************************************************/
 var access = require('../UtilProgs/dataStructureUtil');
 var read = require('readline-sync');
+try {
 var deq = new access.DeQueue;
 /*
 *creates dequeue object
@@ -29,10 +30,11 @@ if(output == false)
     /*
     *checks if it is a palindrome or not
     */
-    console.log("String is not a palindrome");
-    
+    console.log("String is not a palindrome");    
 }
 else{
-    console.log("String is a palindrome");
-    
+    console.log("String is a palindrome");  
+}
+} catch (error) {
+    console.log(error.message); 
 }

@@ -1,0 +1,47 @@
+/****************************************************************
+ * 
+ * Execution    :Default node   cmd>node primeAnagramQueue.js
+ * Purpose      :To add the prime numbers that are anagram in the range of 0 ­ 1000 in a queue using
+ *               the linked list and print the anagrams from the queue.
+ * 
+ * @description
+ * @file        :primeAnagramQueue.js
+ * @overview    :Add the prime numbers that are anagram in the range of 0 ­ 1000 in a queue using
+ *               the linked list and print the anagrams ifrom the queue.
+ * @author name :Deepthi V <deepthiv286@gmail.com>
+ * @version     :1.0
+ * @since       :04/02/2019
+ * 
+ ***************************************************************/
+var access = require('../UtilProgs/dataStructureUtil');
+var util = require('../UtilProgs/algoUtil');
+
+    try {
+        var que = new access.QueueLinkedList;
+        var arr = [];
+        /*
+        *loops from 0-1000
+        */
+        for (let i = 0; i < 1000; i++) {
+            /*
+            *checks if a number is prime and then pushes to the array
+            */
+            if (util.isPrime(i)) {
+                arr.push(i);
+            }
+        }
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                //checks if numbers are anagram
+                if (util.anagram(arr[i], arr[j])) {
+                    que.enqueue(Number(arr[i]));
+                    que.enqueue(Number(arr[j]));
+                }
+            }
+        }
+        var result = que.print();
+        console.log("Numbers which are prime and anagram using queue : "+result);   
+    }
+    catch (error) {
+        console.log(error.message);
+    }

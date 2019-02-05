@@ -18,6 +18,7 @@ var util = require('../UtilProgs/algoUtil');
 /*
 *accessing util files
 */
+try {
 var array = [['0-100'],['100-200'],['200-300'],['300-400'],['400-500'],['500-600'],['600-700'],['700-800'],['800-900'],['900-1000']];
 var i = 0,j = 1,range = 100;
 for (let prime = 2; prime <= 1000; prime++) {
@@ -45,4 +46,8 @@ for (let prime = 2; prime <= 1000; prime++) {
     } 
 }
 console.log(array);
+} catch (error) {
+    console.log(error.message); 
+}
+
 
