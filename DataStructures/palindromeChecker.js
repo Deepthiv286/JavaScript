@@ -17,23 +17,31 @@ var access = require('../UtilProgs/dataStructureUtil');
 var read = require('readline-sync');
 try {
 var deq = new access.DeQueue;
+var format = /[a-z]/;
 /*
 *creates dequeue object
 */
 var string = read.question("Enter a string : ");
-var output = deq.palindromeChecker(string);
-/*
-*invoking palindromeChecker function
-*/
-if(output == false)
+if(format.test(string))
 {
+    var output = deq.palindromeChecker(string);
     /*
-    *checks if it is a palindrome or not
+    *invoking palindromeChecker function
     */
-    console.log("String is not a palindrome");    
+    if(output == false)
+    {
+        /*
+        *checks if it is a palindrome or not
+        */
+        console.log(output+"\n String is not a palindrome");    
+    }
+    else{
+        console.log(output+"\n String is a palindrome");  
+    }
 }
 else{
-    console.log("String is a palindrome");  
+    console.log("Enter string only");
+    
 }
 } catch (error) {
     console.log(error.message); 

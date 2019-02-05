@@ -16,14 +16,12 @@
 var access = require('../UtilProgs/dataStructureUtil');
 var util = require('../UtilProgs/algoUtil');
 var T=require('util');
-var readline = require('readline-sync');
+
 try {
 var array = [["0-100 "], ["100-200  "], ["200-300 "], ["300-400 "], ["400-500 "], ["500-600 "], ["600-700 "], ["700-800 "], ["800-900 "], ["900-1000 "]];
-var array1 = [["0-100 "], ["100-200  "], ["200-300 "], ["300-400 "], ["400-500 "], ["500-600 "], ["600-700 "], ["700-800 "], ["800-900 "], ["900-1000 "]];
-var i = 0; var j = 1; var range = 100;
+var i = 0,j = 1,range = 100;
 var arr = [];
 var arr1 = [];
-var arr2 = [];
 for (let prime = 2; prime <= 1000; prime++) {
     if (util.isPrime(prime)) {
 
@@ -61,7 +59,7 @@ for (let prime = 2; prime <= 1000; prime++) {
     }
 }
 var arr = access.dArray();
-console.log("The prime numbers that are not Anagram presents in the given range ");
+console.log("Prime numbers that are not an anagram in the given range ");
 for (var i = 0; i < array.length; i++) {
     for (var j = 0; j < array[i].length; j++) {
         T.print(array[i][j] + " ");

@@ -16,21 +16,23 @@ var access = require('../UtilProgs/dataStructureUtil');
 var read = require('readline-sync');
 try {
     var q = new access.Queue;
-    var bankAmount = 2500;
-    var arr = [];
+    var bankAmount = 5000;
     var flag = true;
-    var num = read.question("Enter total number of people in a queue : ");
+    var num = read.questionInt("Enter total number of people in a queue : ");
     if (num > 0) {
+        /*
+        *loop to deposit or withdraw the amount
+        */
         for (let i = 1; i <= num; i++) {
-            var ch = read.question("Enter 1 to deposit amount \n Enter 2 to withdraw amount \n");
+            var ch = read.questionInt("Enter 1 to deposit amount \n Enter 2 to withdraw amount \n");
             if (ch == 1) {
                 var amount = read.questionFloat("Enter the total amount to deposit : ");
-                arr = q.enqueue(Number(amount));
+                q.enqueue(Number(amount));
                 flag = true;
             }
             else if (ch == 2) {
                 var amount = read.questionInt("Enter the total amount to withdraw : ");
-                var wd = q.enqueue(Number(-amount));
+                q.enqueue(Number(-amount));
                 flag = true;
             }
             else {
@@ -49,11 +51,19 @@ try {
         for (let i = 1; i <= num; i++) {
             count += q.dequeue();
         }
-        console.log(count);
         var total = bankAmount + count;
-        console.log("Balance is : " + total);
+        if (count > 0) {
+            console.log("Balance is : " + total);
+        }
+        else {
+            console.log("Insufficient balance");
+
+        }
         if (total < bankAmount) {
-            console.log("Maintain minimum balance "+bankAmount+" in the bank account");
+            /*
+            *checks if minimum balance is maintained in the account
+            */
+            console.log("Maintain minimum balance " + bankAmount + " in the bank account");
         }
         else {
             console.log("Minimum balance is maintained in the bank");

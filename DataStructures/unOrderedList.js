@@ -24,7 +24,7 @@ var read = require('readline-sync');
  *accepts userinput
 */
 try {
-    var format = /[a-zA-Z]/;
+    var format = /[a-z]/;
     var word = read.question("Enter the word to search : ");
     if(format.test(word))
     {
@@ -69,7 +69,7 @@ try {
     }
     }
     else{
-        console.log("Enter string only");   
+        console.log("Enter lower case string only");   
     }
 } catch (error) {
     console.log(error.message);

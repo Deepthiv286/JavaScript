@@ -30,7 +30,9 @@ try {
     for (let i = 0; i < numArray.length; i++) {
         var n = Number(numArray[i]);
        var remainder = n % 11;
-        
+        /*
+        *calculates the remainder of the number when divide by 11
+        */
         if (arr[remainder] === undefined) {
             arr[remainder] = new access.LinkedList;
             arr[remainder].add(n);
@@ -41,6 +43,9 @@ try {
     
     var str = "";
     for (let index = 0; index <= 10; index++) {
+        /*
+        *looping according to the number of slots
+        */
         T.print(index + " slot: ");
         try {
             console.log(arr[index].print());
@@ -52,7 +57,7 @@ try {
     var valid = false;
    
     do {
-        var number = readline.question('Enter the number you want to search \n');
+        var number = readline.questionInt('Enter the number you want to search \n');
       if (isNaN(number) && number<0) {
         console.log("Enter positive number only greater than zero");
       } else {

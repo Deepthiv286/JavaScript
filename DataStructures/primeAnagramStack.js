@@ -41,7 +41,7 @@ var util = require('../UtilProgs/algoUtil');
             }
         }
         var result = stack.print();
-        console.log("Numbers which are prime and anagram using stack : "+result);  
+        console.log("Numbers which are prime and anagram using stack in the reverse order : \n"+result);  
     }
     catch (error) {
         console.log(error.message);

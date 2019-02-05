@@ -40,7 +40,7 @@ var util = require('../UtilProgs/algoUtil');
             }
         }
         var result = que.print();
-        console.log("Numbers which are prime and anagram using queue : "+result);   
+        console.log("Numbers which are prime and anagram using queue : \n"+result);   
     }
     catch (error) {
         console.log(error.message);

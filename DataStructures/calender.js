@@ -18,14 +18,17 @@ var access = require('../UtilProgs/dataStructureUtil');
 */
 const T = require('util');
 try {
-    var month = +process.argv[2];
-    var year = +process.argv[3];
+    var month = process.argv[2];
+    var year = process.argv[3];
     /*
     *accepts command-line arguements
     */
+    var format = /[0-9]/;
     var week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     var date = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    var day = access.day(month, 1, year);
+    if(format.test(month) && format.test(year) && year.length == 4 && month>0 && month<=12)
+    {
+        var day = access.day(month, 1, year);
     /*
     *invoking day function
     */
@@ -72,6 +75,10 @@ try {
         }
     }
     console.log("\n\n");
+    }
+    else{
+        console.log("Enter valid inputs");
+    }
 }
 catch (error) {
     console.log(error.message);

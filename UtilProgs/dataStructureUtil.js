@@ -11,11 +11,7 @@
  * @since       :31/01/2019
  * 
  ***************************************************************/
-const readline = require('readline-sync');
-/*
- *accepts userinput
-*/
-var utility = require('../UtilProgs/utility');
+
 class Node {
     /*
     *node class with a parameterized constructor
@@ -419,7 +415,7 @@ class QueueLinkedList {
         else {
             var itemPop = this.head;
             this.head = this.head.next;
-            return itemPop;
+            return itemPop.data;
         }
     }
     isEmpty() {
@@ -696,7 +692,9 @@ module.exports = {
         for (let i = 2; i < 1000; i++) {
             if (util.isPrime(i)) {
                 arr.push(i);
-
+                /*
+                *adds prime numbers to the array
+                */
             }
         }
         var range = 100, k = 0;
@@ -706,7 +704,9 @@ module.exports = {
                     if (arr[i] <= range) {
                         if (arr[j] <= range) {
                             array[k].push(arr[i]);
-
+                            /*
+                            *checks if the prime number is an anagram and adds to the array
+                            */
                             arr1.push(arr[i])
                             arr1.push(arr[j])
                             array[k].push(arr[j]);
@@ -722,10 +722,12 @@ module.exports = {
                 }
             }
         }
-        console.log("The Number which are prime and anagram ");
+        console.log("Numbers which are prime and anagram ");
         var req = require('util')
         for (let i = 0; i < array.length; i++) {
-
+            /*
+            *loop to print the numbers that are prime and anagram
+            */
             for (let j = 0; j < array[i].length; j++) {
                 req.print(array[i][j]);
                 if (j == 0) {
