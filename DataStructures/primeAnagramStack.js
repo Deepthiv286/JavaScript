@@ -6,8 +6,6 @@
  * 
  * @description
  * @file        :primeAnagramStack.js
- * @overview    :Add the prime numbers that are anagram in the range of 0 ­ 1000 in a stack using
- *               the linked list and print the anagrams in the reverse order.
  * @author name :Deepthi V <deepthiv286@gmail.com>
  * @version     :1.0
  * @since       :04/02/2019
@@ -15,8 +13,19 @@
  ***************************************************************/
 var access = require('../UtilProgs/dataStructureUtil');
 var util = require('../UtilProgs/algoUtil');
-
-
+/***** Prime and Anagram Stack *****/
+    /*
+     *13. Prime and Anagram Stack
+     *
+     * @purpose: To add the prime numbers that are anagram in the range of 0 ­ 1000 in a stack using
+     *           the linked list and print the anagrams from the stack.
+     * @param: Pass numbers to check if its a prime and anagram.
+     * @function: Add the prime numbers that are anagram in the range of 0 ­ 1000 in a stack using
+     *            the linked list and print the anagrams ifrom the stack.
+     * 
+    */
+function primeAnagramStack()
+{
     try {
         var stack = new access.StackLinkedList;
         var arr = [];
@@ -31,12 +40,12 @@ var util = require('../UtilProgs/algoUtil');
                 arr.push(i);
             }
         }
-        for (let i = 0; i < arr.length; i++) {
-            for (let j = i + 1; j < arr.length; j++) {
+        for (let j = 0; j < arr.length; j++) {
+            for (let k = j + 1; k < arr.length; k++) {
                 //checks if numbers are anagram
-                if (util.anagram(arr[i], arr[j])) {
-                    stack.push(Number(arr[i]));
+                if (util.anagram(arr[j], arr[k])) {
                     stack.push(Number(arr[j]));
+                    stack.push(Number(arr[k]));
                 }
             }
         }
@@ -46,6 +55,9 @@ var util = require('../UtilProgs/algoUtil');
     catch (error) {
         console.log(error.message);
     }
+}
+primeAnagramStack();
+
 
 
 
