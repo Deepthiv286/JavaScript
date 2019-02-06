@@ -31,7 +31,7 @@ try {
         var n = Number(numArray[i]);
        var remainder = n % 11;
         /*
-        *calculates the remainder of the number when divide by 11
+        *calculates the remainder of the number when divided by 11
         */
         if (arr[remainder] === undefined) {
             arr[remainder] = new access.LinkedList;

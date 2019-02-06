@@ -26,7 +26,7 @@ module.exports =
        try {
         var fileStream = require('fs');
         var f = fileStream.readFileSync(fileName,'utf8');
-        var arr = f.split(' ');
+        var arr = f.trim().split(' ');
         return arr;
        } catch (error) {
            console.log(error.message);   

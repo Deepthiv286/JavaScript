@@ -61,6 +61,9 @@ function Stack(){
     }
     if (stack.size == 0) 
     {
+        /*
+        *checks if the stack is empty
+        */
         return true;
     }
     return false;

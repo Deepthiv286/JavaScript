@@ -23,8 +23,8 @@ try {
     var stack1 = new access.StackLinkedList;
     var dateq = new access.StackLinkedList;
     var stack2 = new access.StackLinkedList;
-    var month = read.questionInt("enter the month :");
-    var year = read.questionInt("enter the year :");
+    var month = read.questionInt("enter the month : ");
+    var year = read.questionInt("enter the year : ");
     if (month > 0 && month <= 12 && year>999 && year<10000) {
         var d = access.day(month, 1, year);
         console.log(d);

@@ -32,7 +32,8 @@ class LinkedList {
     }
     add(data) {
         /*
-        *add function takes data as parameter and adds it to the node
+        *add function adds new item to the list
+        *it needs the item and returns nothing
         */
         var node = new Node(data);
         if (this.head == null)
@@ -48,7 +49,8 @@ class LinkedList {
     }
     remove(data) {
         /*
-        *remove function takes data as parameter and removes it from the node
+        *remove function removes the item from the list
+        *it needs the item and modifies the list
         */
         var current = this.head;
         var prev = null;
@@ -69,7 +71,8 @@ class LinkedList {
     }
     contain(data1) {
         /*
-        *contain function takes data as parameter and searches if it exists in the node 
+        *contain function searches for the item in the list
+        *it needs the item and returns boolean value 
         */
         if (this.head == null) {
             console.log("List is empty");
@@ -88,13 +91,15 @@ class LinkedList {
     }
     size() {
         /*
-        *size function returns the number of elements in the list
+        *size function returns the number of items in the list
+        *it needs no parameters and returns an integer
         */
         return this.size;
     }
     isEmpty() {
         /*
-        *if size is 0 that means the list is empty
+        *tests to see whether the list is empty
+        *it needs no parameters and returns boolean value
         */
         if (this.size == 0)
             return true;
@@ -103,7 +108,8 @@ class LinkedList {
     }
     indexOf(data) {
         /*
-        *indexOf function searches for a data and returns the index in which it is found
+        *indexOf function returns the position of the item in the list
+        *it needs the item and returns the index
         */
         var count = 0;
         var current = this.head;
@@ -117,7 +123,7 @@ class LinkedList {
     }
     addPos(arr, num) {
         /*
-        *addPos function adds numbers in those positions
+        *addPos function returns position
         */
         console.log(num);
         for (let i = 0; i < arr.length - 1; i++) {
@@ -132,7 +138,7 @@ class LinkedList {
     }
     insert(data) {
         /*
-        *inserts data in a node
+        *inserts data in the list
         */
         var n = new Node(data);
         if (this.head == null) {
@@ -149,7 +155,7 @@ class LinkedList {
     }
     insertAt(data, index) {
         /*
-        *inserts data in a particular index
+        *inserts data in a particular index(position)
         */
         if (index > 0 && index > this.size) {
             return false;
@@ -180,13 +186,13 @@ class LinkedList {
         /*
         *function to print the list
         */
-        var str = "";
-        var temp = this.head;
-        while (temp) {
-            str = str + " " + temp.data;
-            temp = temp.next;
-        }
-        return str;
+       var str = "";
+       var temp = this.head;
+       while (temp) {
+           str = str + " " + temp.data;
+           temp = temp.next;
+       }
+       return str;
 
     }
 }
@@ -203,13 +209,15 @@ class Stack {
     }
     size() {
         /*
-        *size function returns the number of elements in the stack
+        *size function returns the number of items on the stack
+        *it needs no parameters and returns an integer
         */
         return this.size;
     }
     isEmpty() {
         /*
-        *if size is 0 that means the stack is empty
+        *tests whether the stack is empty
+        *it needs no parameters and returns boolean value
         */
         if (this.size == 0)
             return true;
@@ -218,7 +226,8 @@ class Stack {
     }
     push(data) {
         /*
-        *push function pushes the data to the stack
+        *push function adds new item to the top of the stack
+        *it needs the item and returns nothing
         */
         if (this.top == this.capacity - 1) {
             console.log("Stack overflow");
@@ -229,7 +238,8 @@ class Stack {
     }
     pop() {
         /*
-        *pop function pops the data from the stack
+        *pop function removes the top item from the stack
+        *it needs no parameter and returns the item
         */
         if (this.top == this.capacity - 1)
             console.log("Stack is empty");
@@ -238,7 +248,7 @@ class Stack {
     }
     peek() {
         /*
-        *function to take a peek in the stack
+        *function to return the top item from the stack
         */
         if (this.top == -1)
             console.log("Stack is empty");
@@ -353,28 +363,38 @@ class Queue {
     }
     enqueue(data) {
         /*
-        *enqueue function pushes the data to the item array
+        *enqueue function adds new item to the rear of the queue
+        *it needs the item and returns nothing
         */
         this.item.push(data);
     }
     dequeue() {
         /*
-        *dequeue function sends the data out from the item array
+        *dequeue function removes front item from the queue
+        *it needs no parameter and returns the item
         */
         if (this.isEmpty())
             return "Underflow";
 
         return this.item.shift();
     }
-    isEmpty() {
+    size() {
         /*
-        *if the length of item array is 0 that means the queue is empty
+        *size function returns the number of items in the queue
+        *it needs no parameters and returns an integer
+        */
+        return this.size;
+    }
+    isEmpty() {
+       /*
+        *tests whether the queue is empty
+        *it needs no parameters and returns boolean value
         */
         return this.item.length == 0;
     }
     print() {
         /*
-        *prints the data in the item array
+        *prints the items in the queue
         */
         var str = "";
         for (let i = 0; i < this.item.length; i++) {
@@ -451,7 +471,7 @@ class QueueLinkedList {
     }
 }
 
-class DeQueue {
+class DeQue {
     /*
     *deQueue class with empty arguement constructor
     */
@@ -470,15 +490,24 @@ class DeQueue {
         }
         return false;
     }
-    isEmpty() {
+    size() {
         /*
-        *function to check if the queue is empty
+        *size function returns the number of items in the deque
+        *it needs no parameters and returns an integer
         */
-        return this.front == -1;
+        return this.size;
+    }
+    isEmpty() {
+       /*
+        *tests whether the deque is empty
+        *it needs no parameters and returns boolean value
+        */
+       return this.front == -1;
     }
     addFront(item) {
         /*
-        *function to add items in the front
+        *adds new item to the front of deque
+        *it needs the item and returns nothing 
         */
         if (this.isFull()) {
             console.log("Queue overflow");
@@ -499,7 +528,8 @@ class DeQueue {
     }
     addRear(item) {
         /*
-        *function to add items in the rear
+        *adds new item to the rear of deque
+        *it needs the item and returns nothing 
         */
         if (this.isFull()) {
             console.log("Queue overflow");
@@ -520,7 +550,8 @@ class DeQueue {
     }
     removeFront() {
         /*
-        *function to remove items in the front
+        *removes the front item from deque
+        *it needs no parameter and returns the item
         */
         if (this.isEmpty()) {
             console.log("Queue underflow");
@@ -544,7 +575,8 @@ class DeQueue {
     }
     removeRear() {
         /*
-        *function to remove items in the rear
+        *removes the rear item from deque
+        *it needs no parameter and returns the item
         */
         if (this.isEmpty()) {
             console.log("Queue underflow");
@@ -564,7 +596,7 @@ class DeQueue {
     }
     getFront() {
         /*
-        *function to get the front elements
+        *function to get the front items
         */
         if (this.isEmpty()) {
             return -1;
@@ -573,7 +605,7 @@ class DeQueue {
     }
     getRear() {
         /*
-        *function to get the rear elements
+        *function to get the rear items
         */
         if (this.isEmpty()) {
             return -1;
@@ -599,7 +631,7 @@ class DeQueue {
 }
 var util = require('../UtilProgs/algoUtil');
 module.exports = {
-    LinkedList, Node, Stack, Queue, DeQueue, StackLinkedList, QueueLinkedList,
+    LinkedList, Node, Stack, Queue, DeQue, StackLinkedList, QueueLinkedList,
 
     binaryTree(num) {
         /*

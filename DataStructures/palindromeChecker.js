@@ -16,7 +16,7 @@
 var access = require('../UtilProgs/dataStructureUtil');
 var read = require('readline-sync');
 try {
-var deq = new access.DeQueue;
+var deq = new access.DeQue;
 var format = /[a-z]/;
 /*
 *creates dequeue object

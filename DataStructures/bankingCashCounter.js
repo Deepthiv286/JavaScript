@@ -28,11 +28,17 @@ try {
             if (ch == 1) {
                 var amount = read.questionFloat("Enter the total amount to deposit : ");
                 q.enqueue(Number(amount));
+                /*
+                *invoking enqueue function to deposit the amount
+                */
                 flag = true;
             }
             else if (ch == 2) {
                 var amount = read.questionInt("Enter the total amount to withdraw : ");
                 q.enqueue(Number(-amount));
+                /*
+                *invoking enqueue function to withdraw the amount
+                */
                 flag = true;
             }
             else {
@@ -43,7 +49,7 @@ try {
         }
     }
     else {
-        console.log("Enter valid input");
+        console.log("Enter positive number");
         return;
     }
     if (flag) {

@@ -475,7 +475,6 @@ merge(arr, brr, crr) {
         return crr;
     } catch (error) {
         console.log(error.message);
-
     }
 },
 
