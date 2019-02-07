@@ -41,6 +41,29 @@ function bankingCashCounter()
                     {
                         queue.enqueue(Number(amount));
                         flag = true;
+                        if (flag) {
+                           /* var count = 0;
+                            for (let j = 1; j <= num; j++) {
+                                count += queue.dequeue();
+                            }*/
+                            var total = bankAmount + amount;
+                            if (amount > 0) {
+                                console.log("Balance is : " + total);
+                            }
+                            else {
+                                console.log("Insufficient balance");
+                    
+                            }
+                            if (total < bankAmount) {
+                                /*
+                                *checks if minimum balance is maintained in the account
+                                */
+                                console.log("Maintain minimum balance " + bankAmount + " in the bank account");
+                            }
+                            else {
+                                console.log("Minimum balance is maintained in the bank");
+                            }
+                        }
                     }
                     else{
                         console.log("Enter amount greater than 0"); 
@@ -56,6 +79,29 @@ function bankingCashCounter()
                     {
                         queue.enqueue(Number(-amount));
                         flag = true;
+                        if (flag) {
+                            var count = 0;
+                            for (let j = 1; j <= num; j++) {
+                                count += queue.dequeue();
+                            }
+                            var total = bankAmount + count;
+                            if (count > 0) {
+                                console.log("Balance is : " + total);
+                            }
+                            else {
+                                console.log("Insufficient balance");
+                    
+                            }
+                            if (total < bankAmount) {
+                                /*
+                                *checks if minimum balance is maintained in the account
+                                */
+                                console.log("Maintain minimum balance " + bankAmount + " in the bank account");
+                            }
+                            else {
+                                console.log("Minimum balance is maintained in the bank");
+                            }
+                        }
                     }
                     else{
                         console.log("Enter amount greater than 0"); 
@@ -76,7 +122,7 @@ function bankingCashCounter()
             console.log("Enter positive number");
             return;
         }
-        if (flag) {
+       /* if (flag) {
             var count = 0;
             for (let j = 1; j <= num; j++) {
                 count += queue.dequeue();
@@ -93,12 +139,12 @@ function bankingCashCounter()
                 /*
                 *checks if minimum balance is maintained in the account
                 */
-                console.log("Maintain minimum balance " + bankAmount + " in the bank account");
+               /* console.log("Maintain minimum balance " + bankAmount + " in the bank account");
             }
             else {
                 console.log("Minimum balance is maintained in the bank");
             }
-        }
+        }*/
     } catch (error) {
         console.log(error.message);
     }

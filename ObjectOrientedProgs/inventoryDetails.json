@@ -1,0 +1,83 @@
+{
+    "Rice": [
+        {
+            "name": "Basmati rice",
+            "weight": 5,
+            "price": 40
+        },
+        {
+            "name": "Champaa Rice",
+            "weight": 10,
+            "price": 28
+        },
+        {
+            "name": "Brown Rice",
+            "weight": 12,
+            "price": 55
+        },
+        {
+            "name": "White Rice",
+            "weight": 5,
+            "price": 30
+        },
+        {
+            "name": "Jasmine Rice",
+            "weight": 15,
+            "price": 36
+        }
+    ],
+    "Pulses": [
+        {
+            "name":"Lupins" ,
+            "weight":5 ,
+            "price":64
+        },
+        {
+            "name":"Chickpeas" ,
+            "weight":10 ,
+            "price":80
+        },
+        {
+            "name":"Kidney beans" ,
+            "weight":20 ,
+            "price":75
+        },
+        {
+            "name":"Black Eyed Beans" ,
+            "weight":5 ,
+            "price":50
+        },
+        {
+            "name":"Green Gram Beans" ,
+            "weight":12 ,
+            "price":56
+        }
+    ],
+    "Wheat": [
+        {
+            "name":"Aashirvaad" ,
+            "weight":5 ,
+            "price":25
+        },
+        {
+            "name":"Buckwheat" ,
+            "weight":2 ,
+            "price":30
+        },
+        {
+            "name":"Organic" ,
+            "weight":6 ,
+            "price":50
+        },
+        {
+            "name":"Bread" ,
+            "weight":1 ,
+            "price":20
+        },
+        {
+            "name":"All-Purpose Flour" ,
+            "weight": 5,
+            "price":28
+        }
+    ]
+}
