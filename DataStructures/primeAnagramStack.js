@@ -11,7 +11,7 @@
  * @since       :04/02/2019
  * 
  ***************************************************************/
-var access = require('../UtilProgs/dataStructureUtil');
+var access = require('../UtilProgs/stack');
 var util = require('../UtilProgs/algoUtil');
 /***** Prime and Anagram Stack *****/
     /*

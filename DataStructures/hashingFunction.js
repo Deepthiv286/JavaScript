@@ -11,7 +11,7 @@
  * @since       :05/02/2019
  * 
  ***************************************************************/
-var access = require('../UtilProgs/dataStructureUtil');
+var access = require('../UtilProgs/linkedList');
 var readline = require('readline-sync');
 const T = require('util');
 var filestream = require('fs');

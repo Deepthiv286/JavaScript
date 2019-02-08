@@ -10,7 +10,7 @@
  * @since       :02/02/2019
  * 
  ***************************************************************/
-var access = require('../UtilProgs/dataStructureUtil');
+var access = require('../UtilProgs/queue');
 var read = require('readline-sync');
 /***** Banking Cash Counter *****/
     /*

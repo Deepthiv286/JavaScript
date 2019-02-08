@@ -11,6 +11,10 @@
  * @since       :07/02/2019
  * 
  ***************************************************************/
+const read = require('readline-sync');
+/*
+*accepts userinput
+*/
 module.exports = {
     /***** JSON Inventory Data Management *****/
     /*
@@ -22,22 +26,21 @@ module.exports = {
      *            with properties name, weight, price per kg.
      * 
     */
-    inventory(object)
-    {
+    inventory(object) {
         var rice = object.Rice;
         var pulses = object.Pulses;
         var wheat = object.Wheat;
         console.log("Rice");
-        for(let key in rice){
-            console.log("Cost of "+rice[key].name+" for "+rice[key].weight+"kg = "+rice[key].weight*rice[key].price+"/-");   
+        for (let key in rice) {
+            console.log("Cost of " + rice[key].name + " for " + rice[key].weight + "kg = " + rice[key].weight * rice[key].price + "/-");
         }
         console.log("Pulses");
-        for(let key in pulses){    
-            console.log("Cost of "+pulses[key].name+" for "+pulses[key].weight+"kg = "+pulses[key].weight*pulses[key].price+"/-");   
+        for (let key in pulses) {
+            console.log("Cost of " + pulses[key].name + " for " + pulses[key].weight + "kg = " + pulses[key].weight * pulses[key].price + "/-");
         }
         console.log("Wheat");
-        for(let key in wheat){
-            console.log("Cost of "+wheat[key].name+" for "+wheat[key].weight+"kg = "+wheat[key].weight*wheat[key].price+"/-");   
+        for (let key in wheat) {
+            console.log("Cost of " + wheat[key].name + " for " + wheat[key].weight + "kg = " + wheat[key].weight * wheat[key].price + "/-");
         }
     },
 
@@ -53,37 +56,42 @@ module.exports = {
      *            Use Regex to replace name, full name, Mobile#, and Date with proper value.
      * 
     */
-    replaceUsingRegex(name,fullName,mobileNumber)
-    {
-        var inputName = "Hello <<name>>,";
-        var inputFullName = "We have your full name as <<full name>> in our system.";
-        var inputNumber = "\nYour contact number is 91­-xxxxxxxxxx.";
-        var inputDate = "\nPlease,let us know in case of any clarification. \nThank you BridgeLabz 01.01.2016.";
-        var replaceName = inputName.replace(/<<name>>/g,name );
-        var replaceFullName = inputFullName.replace(/<<full name>>/g,fullName);
-        var replaceNumber = inputNumber.replace(/xxxxxxxxxx/g,mobileNumber);
+    replaceUsingRegex(name, fullName, mobileNumber) {
+        var fs = require('fs');
+        var string = fs.readFileSync('regexFile.txt', 'utf8');
+        string = string.replace(/<<name>>/g, name);
+        string = string.replace(/<<full name>>/g, fullName);
+        string = string.replace(/<<xxxxxxxxxx>>/g, mobileNumber);
         var day = new Date();
         date = day.toDateString();
-        var replaceDate = inputDate.replace(/01.01.2016/g,date);
-        console.log(replaceName+replaceFullName+replaceNumber+replaceDate);
-        
+        string = string.replace(/01.01.2016/g, date);
+        console.log(string);
+
     },
 
-    /***** Stock Report *****/
+    /***** Inventory Management *****/
     /*
-     *3.Stock Report
+     *4.Inventory Management
      *
-     *@purpose: To print the stock report.
+     *@purpose: To create inventory object from JSON. Calculate the value for every inventory.
      *@param: Pass N number of stocks, for each stock read in the share name, number of
      *        share, and share price.
-     *@function: Create stock and stock portfolio class holding the list of stocks read
-     *           from the input file. Have functions in the class to calculate the value of each
-     *           stock and the value of total stocks. 
+     *@function: Create InventoryManager to manage the inventory. The inventory manager will use inventoryfactory to create inventory
+     *           object from JSON. The inventorymanager will call each inventory object in its list
+     *           to calculate the inventory price and then call the inventory object to return the JSON string.
      * 
     */
-   stockReport()
-   {
-       
-   }
+    inventoryManager(object) {
+        var stock = object.Stock;
+        for(let key in stock)
+        {
+            console.log("Stock value of = "+stock[key].name);
+            var total = stock[key].numberOfShares*stock[key].sharePrice;
+            console.log(total);
+            var sum = 0;
+            sum += total;
+        }
+        console.log("Total value of stocks = "+sum); 
+    }
 
 }

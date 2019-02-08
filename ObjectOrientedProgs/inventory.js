@@ -14,9 +14,17 @@ var access = require('../UtilProgs/oopUtil');
 var fs = require('fs');
 var data = fs.readFileSync('inventoryDetails.json', 'utf8');
 var details = JSON.parse(data);
-//console.log(details);
-inventoryManagement()
-{
-    access.inventory(details);
+/*
+*converts text to a javascript object
+*/
+function inventoryManagement() {
+    try {
+        access.inventory(details);
+        /*
+        *invoking inventory function
+        */
+    } catch (error) {
+        console.log(error.message);
+    }
 }
 inventoryManagement();

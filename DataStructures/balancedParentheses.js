@@ -13,7 +13,7 @@ const readline = require('readline-sync');
 /*
  *accepts userinput
 */
-var access = require('../UtilProgs/dataStructureUtil');
+var access = require('../UtilProgs/stack');
 /***** Balanced Parentheses *****/
     /*
      *3. Balanced Parentheses

@@ -10,7 +10,7 @@
  * @since       :01/02/2019
  * 
  ***************************************************************/
-var access = require('../UtilProgs/dataStructureUtil');
+var access = require('../UtilProgs/linkedList');
 var utility = require('../UtilProgs/utility');
 var util = require('../UtilProgs/algoUtil');
 /*

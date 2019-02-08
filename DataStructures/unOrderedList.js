@@ -10,7 +10,7 @@
  * @since       :31/01/2019
  * 
  ***************************************************************/
-var access = require('../UtilProgs/dataStructureUtil');
+var access = require('../UtilProgs/linkedList');
 var utility = require('../UtilProgs/utility');
 /*
  *accessing data from utility file
