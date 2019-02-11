@@ -11,7 +11,8 @@
  * @since       :05/02/2019
  * 
  ***************************************************************/
-var access = require('../UtilProgs/queue');
+var access = require('../UtilProgs/dataStructureUtil');
+var util = require('../UtilProgs/queue');
 /*
 *accessing data from utility file
 */
@@ -31,7 +32,7 @@ const T = require('util');
 function weekDayQueue()
 {
     try {
-        var queue = new access.QueueLinkedList;
+        var queue = new util.QueueLinkedList;
         var month = read.questionInt("enter the month : ");
         var year = read.questionInt("enter the year : ");
         if (month > 0 && month <= 12 && year>999 && year<10000) {

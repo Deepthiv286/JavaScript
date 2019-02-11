@@ -1,8 +1,13 @@
+var read = require('readline-sync');
+var fs = require('fs');
+var access = require('../UtilProgs/linkedList');
+var linkedList = new access.LinkedList;
+var s = 0;
 class StockAccount
 {
-    constructor(fileName)
+    constructor()
     {
-        this.fileName = fileName;
+        
     }
     valueOf()
     {

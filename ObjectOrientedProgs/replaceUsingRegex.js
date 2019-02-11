@@ -31,7 +31,12 @@ function regexExpression() {
             console.log("Enter string only");
             fullName = read.question("Enter the full name : ");
         }
-        var mobileNumber = read.questionInt("Enter the mobile number : ");
+        var mobileNumber = read.question("Enter the mobile number : ");
+        if(isNaN(mobileNumber) || mobileNumber.length != 10)
+        {
+            console.log("Enter 10 digit numbers only");
+            mobileNumber = read.question("Enter the mobile number : ");
+        }
         access.replaceUsingRegex(name, fullName, mobileNumber);
         /*
         *invoking replaceUsingRegex function

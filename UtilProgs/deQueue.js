@@ -156,4 +156,4 @@ class DeQue {
         return true;
     }
 }
-module.exports={deQueue}
+module.exports={DeQue}

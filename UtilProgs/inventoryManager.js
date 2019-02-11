@@ -63,7 +63,7 @@ class inventoryManager {
             console.log(stock[key]);
         }
     }
-    edit(data) {
+   /* edit(data) {
         var stock = data.Stock;
         var name = read.question("Enter the stock name to edit :");
         var shares = read.question("Enter the number of shares to edit : ");
@@ -89,6 +89,6 @@ class inventoryManager {
         stock[value2].sharePrice = newPrice;
         fs.writeFileSync('stockPortfolio.json', JSON.stringify(data));
         return;
-    }
+    }*/
 }
 module.exports = { inventoryManager}

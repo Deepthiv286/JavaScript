@@ -1,3 +1,14 @@
+
+class Node {
+    /*
+    *node class with a parameterized constructor
+    */
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+
+}
 class Stack {
     /*
     *Stack class with an empty arguement constructor
@@ -154,4 +165,4 @@ class StackLinkedList {
         return str;
     }
 }
-module.exports = {Stack,StackLinkedList}
+module.exports = {Node,Stack,StackLinkedList}

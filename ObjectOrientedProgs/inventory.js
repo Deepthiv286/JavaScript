@@ -21,7 +21,7 @@ function inventoryManagement() {
     try {
         access.inventory(details);
         /*
-        *invoking inventory function
+        *invoking inventory function from utility file
         */
     } catch (error) {
         console.log(error.message);

@@ -11,7 +11,8 @@
  * @since       :05/02/2019
  * 
  ***************************************************************/
-var access = require('../UtilProgs/stack');
+var access = require('../UtilProgs/dataStructureUtil');
+var util = require('../UtilProgs/stack');
 /*
 *accessing data from utility file
 */
@@ -30,10 +31,10 @@ const T = require('util');
 function weekDayStack()
 {
     try {
-        var weekdays = new access.StackLinkedList;
-        var stackOne = new access.StackLinkedList;
-        var dateq = new access.StackLinkedList;
-        var stackTwo = new access.StackLinkedList;
+        var weekdays = new util.StackLinkedList;
+        var stackOne = new util.StackLinkedList;
+        var dateq = new util.StackLinkedList;
+        var stackTwo = new util.StackLinkedList;
         var month = read.questionInt("enter the month : ");
         var year = read.questionInt("enter the year : ");
         if (month > 0 && month <= 12 && year>999 && year<10000) {

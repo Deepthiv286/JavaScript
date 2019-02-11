@@ -1,3 +1,13 @@
+class Node {
+    /*
+    *node class with a parameterized constructor
+    */
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+
+}
 class Queue {
     /*
     *Queue class with an empty arguement constructor
@@ -114,4 +124,4 @@ class QueueLinkedList {
 
     }
 }
-module.exports = {Queue,QueueLinkedList}
+module.exports = {Node,Queue,QueueLinkedList}

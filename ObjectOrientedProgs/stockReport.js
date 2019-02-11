@@ -12,8 +12,19 @@
  ***************************************************************/
 var access = require('../UtilProgs/stock');
 var read = require('readline-sync');
+/***** Stock Report *****/
+/*
+ *3. Stock Report
+ *
+ * @purpose: To print the stock report.
+ * @param: Pass N number of stocks, for each stock read in the share name, number of share, and share price.
+ * @function: Read in stock names, number of share, share price.Calculate the value of each stock and the total value.
+ *            Print a stock report with total value of each stock and the total value of stock.
+ * 
+*/
 function stock() {
     try {
+        var total = 0;
         var stocks = read.questionInt("Enter the number of stocks : ");
         for (let i = 0; i < stocks; i++) {
             console.log("Stock " + (i + 1));
@@ -36,7 +47,9 @@ function stock() {
             *invoking total function from stock class
             */
             console.log("Stock value of " + name + " = " + stockValue);
+            total += stockValue;   
         }
+        console.log("Total value of the stock = "+total);
     } catch (error) {
         console.log(error.message);
     }
