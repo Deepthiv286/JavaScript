@@ -179,7 +179,16 @@ class LinkedList {
            temp = temp.next;
        }
        return str;
-
     }
+    printLL(){
+       
+        var temp=this.head;
+        while(temp){
+            var str="";
+            str=str+"name: "+temp.data.name+", share:"+temp.data.share+", price: "+temp.data.price;
+            console.log(str);
+            temp=temp.next
+        }
+}
 }
 module.exports = {Node,LinkedList}

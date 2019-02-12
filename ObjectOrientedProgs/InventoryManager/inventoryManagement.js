@@ -1,7 +1,7 @@
 /****************************************************************
  * 
  * Execution    :Default node   cmd>node inventoryManagement.js
- * Purpose      :To create inventory object from JSON. Calculate the value for every inventory.
+ * Purpose      :To print the stock report by creating inventory manager.
  * 
  * @description
  * @file        :inventoryManagement.js
@@ -11,7 +11,7 @@
  * 
  ***************************************************************/
 
-var util = require('../UtilProgs/inventoryManager');
+var util = require('../../UtilProgs/inventoryManager');
 var read = require('readline-sync');
 /***** Inventory Management *****/
 /*

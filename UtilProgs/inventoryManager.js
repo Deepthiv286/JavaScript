@@ -1,8 +1,27 @@
+/****************************************************************
+ * 
+ * Execution    :Default node   cmd>node inventoryManager.js
+ * Purpose      :To print the stock report by creating inventory manager.
+ * 
+ * @description
+ * @file        :inventoryManager.js
+ * @author name :Deepthi V <deepthiv286@gmail.com>
+ * @version     :1.0
+ * @since       :08/02/2019
+ * 
+ ***************************************************************/
 var read = require('readline-sync');
 var fs = require('fs');
 var file = fs.readFileSync('stockPortfolio.json','utf8');
 var object = JSON.parse(file);
-
+/***** Inventory Management *****/
+/*
+ *4. Inventory Management
+ *
+ *@purpose: To create inventoryManager class.
+ *
+ * 
+*/
 class inventoryManager {
 
     constructor() {

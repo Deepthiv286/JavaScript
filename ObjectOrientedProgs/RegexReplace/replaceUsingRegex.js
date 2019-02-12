@@ -10,7 +10,7 @@
  * @since       :07/02/2019
  * 
  ***************************************************************/
-var access = require('../UtilProgs/oopUtil');
+var access = require('../../UtilProgs/oopUtil');
 var read = require('readline-sync');
 function regexExpression() {
     try {

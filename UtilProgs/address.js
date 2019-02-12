@@ -1,5 +1,17 @@
 var read = require('readline-sync');
 var file = require('fs');
+/****************************************************************
+ * 
+ * Execution    :Default node   cmd>node address.js
+ * Purpose      :To design an address book.
+ * 
+ * @description
+ * @file        :address.js
+ * @author name :Deepthi V <deepthiv286@gmail.com>
+ * @version     :1.0
+ * @since       :11/02/2019
+ * 
+ ***************************************************************/
 /**
  * regex
  */
@@ -16,6 +28,14 @@ class Address {
      */
     constructor(address) {
         this.address;
+    }
+    getName(object) {
+        var arr = [];
+        var addr = object.Person;
+        for (let key in addr) {
+            arr.push(addr[key].firstName);
+        }
+        return arr;
     }
     createAddress(address) {
         var firstName = read.question("Enter your first name : ");
@@ -86,7 +106,6 @@ class Address {
             console.log('Done!');
         })
         console.log("Address created succesfully!");
-        console.log("First Name: " + firstName + "\nLast Name: " + lastName + "\nStreet: " + street + "\nCity: " + city + "\nState: " + state + "\nNationality: " + nation);
     }
     /**
      * comaparing name of each object and sort alphabetically
@@ -113,10 +132,10 @@ class Address {
                 console.log(address.Person[i]);
             }
             var update = read.question("Enter the name of profile to edit : ");
-           /* while (!this.getName().includes(update)) {
+            while (!this.getName(address).includes(update)) {
                 console.log("Name doesn't exist");
                 update = read.question("Enter an existing name : ");
-            }*/
+            }
             for (var k = 0; k < address.Person.length; k++) {
                 if (update == address.Person[k].firstName) {
                     temp = k;

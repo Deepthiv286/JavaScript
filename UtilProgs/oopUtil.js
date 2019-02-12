@@ -115,12 +115,11 @@ module.exports = {
                 /*
                 *for each loop for stock
                 */
-                console.log("Stock value of = " + stock[key].name);
                 var total = stock[key].numberOfShares * stock[key].sharePrice;
                 /*
                 *calculates stock value
                 */
-                console.log(total);
+                console.log("Stock value of " + stock[key].name + " = " + total);
                 sum += total;
             }
             console.log("Total value of stocks = " + sum);
@@ -272,21 +271,21 @@ module.exports = {
             */
             var wordOne = playerOne.split(" ");
             var sortOne = sort.sort(wordOne);
-            console.log("[" + sortOne + "]");
+            console.log("Player 1 : " + "[" + sortOne + "]");
 
             var wordTwo = playerTwo.split(" ");
             var sortTwo = sort.sort(wordTwo);
-            console.log("[" + sortTwo + "]");
+            console.log("Player 2 : " + "[" + sortTwo + "]");
 
             var wordThree = playerThree.split(" ");
             var sortThree = sort.sort(wordThree);
-            console.log("[" + sortThree + "]");
+            console.log("Player 3 : " + "[" + sortThree + "]");
 
             var wordFour = playerFour.split(" ");
             var sortFour = sort.sort(wordFour);
-            console.log("[" + sortFour + "]");
+            console.log("Player 4 : " + "[" + sortFour + "]");
         } catch (error) {
             console.log(error.message);
         }
-    } ,
+    },
 }
