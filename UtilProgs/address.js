@@ -3,7 +3,7 @@ var file = require('fs');
 /****************************************************************
  * 
  * Execution    :Default node   cmd>node address.js
- * Purpose      :To design an address book.
+ * Purpose      :To create an address class.
  * 
  * @description
  * @file        :address.js
@@ -101,6 +101,7 @@ class Address {
         /**
          * write file into json
          */
+        file.writeFileSync('addressBook.json', JSON.stringify(address), 'utf-8');
         file.writeFile('addressBook1.json', JSON.stringify(address), 'utf-8', function (err) {
             if (err) throw err
             console.log('Done!');
@@ -131,28 +132,41 @@ class Address {
             for (var i = 0; i < address.Person.length; i++) {
                 console.log(address.Person[i]);
             }
-            var update = read.question("Enter the name of profile to edit : ");
-            while (!this.getName(address).includes(update)) {
+
+        }
+        else {
+            console.log("No profiles to display!!Please create a new profile!");
+            this.createAddress();
+        }
+    }
+    editProfile(address) {
+        var temp = -1;
+        if (address.Person.length > 0) {
+            for (var i = 0; i < address.Person.length; i++) {
+                console.log(address.Person[i]);
+            }
+            var edit = read.question("Enter the name of profile to edit : ");
+            while (!this.getName(address).includes(edit)) {
                 console.log("Name doesn't exist");
-                update = read.question("Enter an existing name : ");
+                edit = read.question("Enter an existing name : ");
             }
             for (var k = 0; k < address.Person.length; k++) {
-                if (update == address.Person[k].firstName) {
+                if (edit == address.Person[k].firstName) {
                     temp = k;
-                    while (choice2 != 5) {
+                    while (choiceOne != 5) {
                         console.log("What you want to do?");
                         console.log("1: Update");
                         console.log("2: Delete");
                         console.log("3: Sort");
                         console.log("4: Save");
                         console.log("5: Exit");
-                        var choice2 = read.questionInt("Enter your choice : ");
-                        switch (choice2) {
+                        var choiceOne = read.questionInt("Enter your choice : ");
+                        switch (choiceOne) {
                             case 1:
                                 /**
                                  * update profile
                                  */
-                                while (choice3 != 7) {
+                                while (choiceTwo != 7) {
                                     console.log("What do you want to update? ");
                                     console.log("1: Street");
                                     console.log("2: City");
@@ -161,8 +175,8 @@ class Address {
                                     console.log("5: Zip code");
                                     console.log("6: Phone");
                                     console.log("7: Exit");
-                                    var choice3 = read.questionInt("Enter your choice : ");
-                                    switch (choice3) {
+                                    var choiceTwo = read.questionInt("Enter your choice : ");
+                                    switch (choiceTwo) {
                                         case 1:
                                             var streetUpdate = read.question("Enter the new street : ");
                                             if (!nameFormat.test(streetUpdate)) {
@@ -177,18 +191,18 @@ class Address {
                                                 "lastName": address.Person[k].lastName,
                                                 "address": {
                                                     "street": streetUpdate,
-                                                    "city": address.Person[k]["Address"].city,
-                                                    "state": address.Person[k]["Address"].state,
-                                                    "nationality": address.Person[k]["Address"].nation,
-                                                    "zip": address.Person[k]["Address"].zip,
-                                                    "phoneNum": address.Person[k]["Address"].phoneNum
+                                                    "city": address.Person[k]["address"].city,
+                                                    "state": address.Person[k]["address"].state,
+                                                    "nationality": address.Person[k]["address"].nation,
+                                                    "zip": address.Person[k]["address"].zip,
+                                                    "phoneNum": address.Person[k]["address"].phoneNum
                                                 }
                                             }
                                             address.Person[k] = obj;
                                             /**
                                              * save into json every time after update
                                              */
-                                            save();
+                                            file.writeFileSync('addressBook1.json', JSON.stringify(address), 'utf-8');
                                             break;
                                         case 2:
                                             var cityUpdate = read.question("Enter the new city name : ");
@@ -200,16 +214,16 @@ class Address {
                                                 "firstName": address.Person[k].firstName,
                                                 "lastName": address.Person[k].lastName,
                                                 "address": {
-                                                    "street": address.Person[k]["Address"].street,
+                                                    "street": address.Person[k]["address"].street,
                                                     "city": cityUpdate,
-                                                    "state": address.Person[k]["Address"].state,
-                                                    "nationality": address.Person[k]["Address"].nation,
-                                                    "zip": address.Person[k]["Address"].zip,
-                                                    "phoneNum": address.Person[k]["Address"].phoneNum
+                                                    "state": address.Person[k]["address"].state,
+                                                    "nationality": address.Person[k]["address"].nation,
+                                                    "zip": address.Person[k]["address"].zip,
+                                                    "phoneNum": address.Person[k]["address"].phoneNum
                                                 }
                                             }
                                             address.Person[k] = obj;
-                                            save();
+                                            file.writeFileSync('addressBook1.json', JSON.stringify(address), 'utf-8');
                                             break;
                                         case 3:
                                             var stateUpdate = read.question("Enter the new state name: ");
@@ -221,16 +235,16 @@ class Address {
                                                 "firstName": address.Person[k].firstName,
                                                 "lastName": address.Person[k].lastName,
                                                 "address": {
-                                                    "street": address.Person[k]["Address"].street,
-                                                    "city": address.Person[k]["Address"].city,
+                                                    "street": address.Person[k]["address"].street,
+                                                    "city": address.Person[k]["address"].city,
                                                     "state": stateUpdate,
-                                                    "nationality": address.Person[k]["Address"].nation,
-                                                    "zip": address.Person[k]["Address"].zip,
-                                                    "phoneNum": address.Person[k]["Address"].phoneNum
+                                                    "nationality": address.Person[k]["address"].nation,
+                                                    "zip": address.Person[k]["address"].zip,
+                                                    "phoneNum": address.Person[k]["address"].phoneNum
                                                 }
                                             }
                                             address.Person[k] = obj;
-                                            save();
+                                            file.writeFileSync('addressBook1.json', JSON.stringify(address), 'utf-8');
                                             break;
                                         case 4:
                                             var nationalityUpdate = read.question("Enter the new nation name : ");
@@ -242,16 +256,16 @@ class Address {
                                                 "firstName": address.Person[k].firstName,
                                                 "lastName": address.Person[k].lastName,
                                                 "address": {
-                                                    "street": address.Person[k]["Address"].street,
-                                                    "city": address.Person[k]["Address"].city,
-                                                    "state": address.Person[k]["Address"].state,
+                                                    "street": address.Person[k]["address"].street,
+                                                    "city": address.Person[k]["address"].city,
+                                                    "state": address.Person[k]["address"].state,
                                                     "nationality": nationalityUpdate,
-                                                    "zip": address.Person[k]["Address"].zip,
-                                                    "phoneNum": address.Person[k]["Address"].phoneNum
+                                                    "zip": address.Person[k]["address"].zip,
+                                                    "phoneNum": address.Person[k]["address"].phoneNum
                                                 }
                                             }
                                             address.Person[k] = obj;
-                                            save();
+                                            file.writeFileSync('addressBook1.json', JSON.stringify(address), 'utf-8');
                                             break;
                                         case 5:
                                             var zipUpdate = read.question("Enter the new zip code: ");
@@ -263,16 +277,16 @@ class Address {
                                                 "firstName": address.Person[k].firstName,
                                                 "lastName": address.Person[k].lastName,
                                                 "address": {
-                                                    "street": address.Person[k]["Address"].street,
-                                                    "city": address.Person[k]["Address"].city,
-                                                    "state": address.Person[k]["Address"].state,
-                                                    "nationality": address.Person[k]["Address"].nation,
+                                                    "street": address.Person[k]["address"].street,
+                                                    "city": address.Person[k]["address"].city,
+                                                    "state": address.Person[k]["address"].state,
+                                                    "nationality": address.Person[k]["address"].nation,
                                                     "zip": zipUpdate,
-                                                    "phoneNum": address.Person[k]["Address"].phoneNum
+                                                    "phoneNum": address.Person[k]["address"].phoneNum
                                                 }
                                             }
                                             address.Person[k] = obj;
-                                            save();
+                                            file.writeFileSync('addressBook1.json', JSON.stringify(address), 'utf-8');
                                             break;
                                         case 6:
                                             var phoneNumberUpdate = read.question("Enter the new phone number: ");
@@ -284,16 +298,16 @@ class Address {
                                                 "firstName": address.Person[k].firstName,
                                                 "lastName": address.Person[k].lastName,
                                                 "address": {
-                                                    "street": address.Person[k]["Address"].street,
-                                                    "city": address.Person[k]["Address"].city,
-                                                    "state": address.Person[k]["Address"].state,
-                                                    "nationality": address.Person[k]["Address"].nation,
-                                                    "zip": address.Person[k]["Address"].zip,
+                                                    "street": address.Person[k]["address"].street,
+                                                    "city": address.Person[k]["address"].city,
+                                                    "state": address.Person[k]["address"].state,
+                                                    "nationality": address.Person[k]["address"].nation,
+                                                    "zip": address.Person[k]["address"].zip,
                                                     "phoneNum": phoneNumberUpdate
                                                 }
                                             }
                                             address.Person[k] = obj;
-                                            save();
+                                            file.writeFileSync('addressBook1.json', JSON.stringify(address), 'utf-8');
                                             break;
                                         case 7:
                                             console.log("Exiting.....");
@@ -307,8 +321,8 @@ class Address {
                                 /**
                                  * to delete profile
                                  */
-                                var update = read.question("Please enter the index you want to delete: ");
-                                delete address.Person[update];
+                                var edit = read.question("Please enter the index you want to delete: ");
+                                delete address.Person[edit];
                                 for (var k = 0; k < address.Person.length; k++) {
                                     if (address.Person[k] == null) {
                                         address.Person.splice(k, 1);
@@ -317,7 +331,7 @@ class Address {
                                 /**
                                  * write file
                                  */
-                                file.writeFile('addressBook1.json', JSON.stringify(address), 'utf-8', function (err) {
+                                file.writeFileSync('addressBook1.json', JSON.stringify(address), 'utf-8', function (err) {
                                     if (err) throw err
                                     console.log('Done!')
                                 })
@@ -327,14 +341,14 @@ class Address {
                                  * sort the profile by name
                                  */
                                 this.sorting(address);
-                                save();
+                                file.writeFileSync('addressBook1.json', JSON.stringify(address), 'utf-8');
                                 break;
                             case 4:
                                 /**
                                  * save file into json
                                  */
                                 function save() {
-                                    file.writeFile('addressBook1.json', JSON.stringify(address), 'utf-8', function (err) {
+                                    file.writeFileSync('addressBook1.json', JSON.stringify(address), 'utf-8', function (err) {
                                         if (err) throw err
                                         console.log('File Saved!!')
                                     })
@@ -368,5 +382,6 @@ class Address {
             this.createAddress();
         }
     }
+
 }
 module.exports = { Address }

@@ -1,3 +1,15 @@
+/****************************************************************
+ * 
+ * Execution    :Default node   cmd>node queue.js
+ * Purpose      :To create class for queue.
+ * 
+ * @description
+ * @file        :queue.js
+ * @author name :Deepthi V <deepthiv286@gmail.com>
+ * @version     :1.0
+ * @since       :01/02/2019
+ * 
+ ***************************************************************/
 class Node {
     /*
     *node class with a parameterized constructor
@@ -57,6 +69,9 @@ class Queue {
         }
     }
 }
+/**
+ * @purpose : To create queue class using linked list
+ */
 class QueueLinkedList {
     /*
     *Queuelinkedlist class with an empty arguement constructor

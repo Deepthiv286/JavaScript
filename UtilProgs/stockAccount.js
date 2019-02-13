@@ -18,7 +18,6 @@ var fs = require('fs');
  *
  *@purpose: To create StockAccount class.
  *
- * 
 */
 class StockAccount {
     constructor() {
@@ -44,8 +43,7 @@ class StockAccount {
         }
         return arr;
     }
-    getName(object)
-    {
+    getName(object) {
         var arr = [];
         var company = object.Company;
         for (let key in company) {
@@ -59,12 +57,20 @@ class StockAccount {
             console.log("Enter string only");
             customerName = read.question("Enter the name of the customer : ");
         }
-        var customerId = read.question("Enter the customer id : ");
+        var customerId = read.questionInt("Enter the customer id : ");
+        while (customerId < 0) {
+            console.log("Enter a positive value");
+            customerId = read.questionInt("Enter the customer id : ");
+        }
         while (this.getId(data).includes(customerId)) {
             console.log("Id already exists..Enter another id");
             customerId = read.question("Enter the customer id : ");
         }
         var customerShare = read.question("Enter the customer share : ");
+        while (customerShare < 0) {
+            console.log("Enter positive value");
+            customerShare = read.question("Enter the customer share : ");
+        }
         while (isNaN(customerShare)) {
             console.log("Enter numbers only");
             customerShare = read.question("Enter the customer share : ");
@@ -88,6 +94,10 @@ class StockAccount {
         console.log(customerData);
         var customer = customerData.Customer;
         var id = read.question("Enter the customer id : ");
+        while (!this.getId(customerData).includes(id)) {
+            console.log("Id doesn't exist");
+            id = read.question("Enter the customer id : ");
+        }
         /**
          * Loop the customer array object to find id of the customer want to buy.
          */
@@ -100,7 +110,11 @@ class StockAccount {
                 var symbol = read.question("Enter the symbol of the company to buy the share : ");
                 while (!isNaN(symbol)) {
                     console.log("Enter a proper symbol");
-                    symbol = read.question("Enter the symbol of the company to buy the share : ")
+                    symbol = read.question("Enter the symbol of the company to buy the share : ");
+                }
+                while (!this.getSymbol(companyData).includes(symbol)) {
+                    console.log("Symbol doesn't exist");
+                    symbol = read.question("Enter the symbol of the company to buy the share : ");
                 }
                 var company = companyData.Company;
                 /**
@@ -113,13 +127,17 @@ class StockAccount {
                         var companySymbol = company[i].symbol;
                         var companyShare = company[i].share;
                         var number = read.questionInt("Enter the number of shares to buy : ");
+                        while (number < 0) {
+                            console.log("Enter positive value");
+                            number = read.questionInt("Enter the number of shares to buy : ");
+                        }
                         while (number > companyShare) {
-                            console.log(" Enter the share number less than company shares ");
+                            console.log("Enter the share number less than company shares ");
                             number = read.questionInt("Enter the number of shares to buy : ");
                         }
                         console.log("Customer name :  " + customerName + "\nname of company  " + companyName + " and symbol : " + companySymbol + " \nnumber of shares bought : " + number);
                         var time = new Date();
-                        console.log(" Time of buying the share is " + Math.floor(time.getSeconds()) + " sec ");
+                        console.log("Time of buying the share is " + Math.floor(time.getSeconds()) + " sec ");
                         var customerShare = parseInt(customerData.Customer[index].share)
                         var companyShare = parseInt(companyData.Company[i].share)
                         var num = parseInt(number);
@@ -146,7 +164,7 @@ class StockAccount {
         var id = read.question("Enter the customer id : ");
         while (!this.getId(customerData).includes(id)) {
             console.log("Id doesn't exist..Enter another id");
-            customerId = read.question("Enter the customer id : ");
+            id = read.question("Enter the customer id : ");
         }
         /**
          * Loop the customer array object to find id of the customer want to sell.
@@ -159,6 +177,14 @@ class StockAccount {
                 console.log("Company information ");
                 console.log(companyData);
                 var symbol = read.question("Enter the symbol of the company to sell the shares to : ");
+                while (!isNaN(symbol)) {
+                    console.log("Enter a proper symbol");
+                    symbol = read.question("Enter the symbol of the company to buy the share : ");
+                }
+                while (!this.getSymbol(companyData).includes(symbol)) {
+                    console.log("Symbol doesn't exist");
+                    symbol = read.question("Enter the symbol of the company to buy the share : ");
+                }
                 var company = companyData.Company;
                 console.log(customer[i]);
                 /**
@@ -166,11 +192,13 @@ class StockAccount {
                   */
                 for (let i in company) {
                     if (company[i].symbol == symbol) {
-                        // console.log("company number of shares and price of each share");
-                        // console.log(company[i]);
                         var companyName = company[i].name;
                         var companySymbol = company[i].symbol;
                         var number = read.questionInt("Enter the number of shares to sell :");
+                        while (number < 0) {
+                            console.log("Enter positive value");
+                            number = read.questionInt("Enter the number of shares to buy : ");
+                        }
                         while (number > customerShare) {
                             console.log("Enter the shares less than customer shares ");
                             number = read.questionInt("Enter the number of shares to sell : ");
@@ -208,9 +236,9 @@ class StockAccount {
      *To print all the details of the customer and company. 
      */
     print(customerData, companyData) {
-        console.log("customer shares information :");
+        console.log("Customer shares information : ");
         console.log(customerData);
-        console.log("company shares information :");
+        console.log("Company shares information : ");
         console.log(companyData);
     }
 }

@@ -1,7 +1,7 @@
 /****************************************************************
  * 
  * Execution    :Default node   cmd>node utility.js
- * Purpose      :To deploy all the business logic.
+ * Purpose      :To create file io.
  * 
  * @description
  * @file        :uility.js

@@ -33,9 +33,9 @@ var data = JSON.parse(file);
 */
 function inventoryManager() {
     try {
-        var object = new util.inventoryManager;
+        var object = new util.InventoryManager;
         /*
-        *creating inventoryManager object
+        *creating InventoryManager object
         */
         while (choice != 4) {
             console.log("Press 1 to add : ");

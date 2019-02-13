@@ -1,4 +1,15 @@
-
+/****************************************************************
+ * 
+ * Execution    :Default node   cmd>node stack.js
+ * Purpose      :To create class for stack.
+ * 
+ * @description
+ * @file        :stack.js
+ * @author name :Deepthi V <deepthiv286@gmail.com>
+ * @version     :1.0
+ * @since       :01/02/2019
+ * 
+ ***************************************************************/
 class Node {
     /*
     *node class with a parameterized constructor
@@ -78,6 +89,9 @@ class Stack {
         }
     }
 }
+/**
+ * @purpose: To create stack class using linked list
+ */
 class StackLinkedList {
     /*
     *Stacklinkedlist class with an empty arguement constructor
@@ -152,6 +166,31 @@ class StackLinkedList {
         this.size--;
         return data;
     }
+    removeSLL(ele)
+    {
+        var temp = this.head;
+        var prev = null;
+        while(temp!=null)
+        {
+            var stock= temp.data;
+            if(stock.name == ele)
+            {
+                if(prev == null)
+                {
+                    this.head = temp.next;
+                }
+                else
+                {
+                    prev.next = temp.next;
+                }
+                this.size--;
+                return temp.data;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        return -1;
+    }
     print() {
         /*
         *function to print the contents from the stacklinkedlist
@@ -163,6 +202,23 @@ class StackLinkedList {
             temp = temp.next;
         }
         return str;
+    }
+    printSLL()
+    {
+        var arr = [];
+        if(this.head == null)
+        {
+            return null;
+        }
+        else{
+            var temp = this.head;
+            while(temp)
+            {
+                arr.push(temp.data);
+                temp = temp.next;
+            }
+            return arr;
+        }
     }
 }
 module.exports = {Node,Stack,StackLinkedList}

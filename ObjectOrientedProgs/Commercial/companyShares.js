@@ -11,39 +11,49 @@
  * 
  ***************************************************************/
 var access = require('../../UtilProgs/linkedList');
-var util = require('../../UtilProgs/stockAccount');
+var util = require('../../UtilProgs/companyShares');
 var read = require('readline-sync');
 var file = require('fs');
 var data = file.readFileSync('company.json', 'utf8');
 var object = JSON.parse(data);
 function companyShares() {
-    var ll = new access.LinkedList;
-    var company = object.Company;
-    var count = 0;
-    var name = read.question("Enter the name of company to add :");
-    var stockAccount = new util.StockAccount;
-    while(stockAccount.getName(object).includes(name))
-    {
-        console.log(name+" company name already exists..Enter another name");
-        name = read.question("Enter the name of company to add :");
-    }
-    var share = read.questionInt("Enter the number of shares : ");
-    var price = read.questionInt("Enter the share price : ");
-    for (let i in company) {
-        ll.add(object.Company[i].name = name,object.Company[i].share = share,object.Company[i].price = price);
-    }
-    ll.printLL();
-    var name = read.question("Enter the name of company to remove :")
-    var temp = ll.head;
-    console.log(ll.size);
-    for (let i = 0; i < count; i++) {
-        if (temp.data.name == name) {
-            ll.remove(temp.data);
+    try {
+        var com = new util.CompanyShares();
+        var company = object.company;
+        /**
+         * Loop the company array objects and add it to linkedlist.
+         */
+        outer: while (true) {
+          console.log("1. Add to the list");
+          console.log("2. Remove from the list");
+          console.log("3. Print");
+          console.log("4. Exit");
+          var choice = read.questionInt("Enter your choice : ");
+           /**
+           * Switch to choose the case to add,remove and
+           * print
+           */
+          switch (choice) {
+            case 1:
+              com.addTolist(company, object);
+              break;
+            case 2:
+              com.removeFromList();
+              break;
+            case 3:
+              com.print();
+              break;
+            case 4:
+              console.log("Exiting.....");
+              break outer;
+            default:
+              console.log("Enter choice within 1-4");
+              break;
+          }
         }
-        else {
-            temp = temp.next;
-        }
+      } catch (err) {
+        console.log(err.message);
+      }
     }
-    ll.printLL();
-}
+
 companyShares();

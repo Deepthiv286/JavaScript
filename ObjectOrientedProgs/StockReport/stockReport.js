@@ -38,7 +38,17 @@ function stock() {
         //         var name = read.question("Enter the share name : ");
         //     }
         //     var num = read.questionInt("Enter the number of shares : ");
+        //     while(num<0 && isNaN(num))
+        //     {
+        //            console.log("Enter positive number");
+        //            num = read.questionInt("Enter the number of shares : "); 
+        //      }
         //     var price = read.questionFloat("Enter the share price : ");
+        //     while(price<0 && isNaN(price))
+        //     {
+        //            console.log("Enter positive number");
+        //            price = read.questionFloat("Enter the share price : "); 
+        //      }
         //     var stock = new access.Stock(name, num, price);
         //     /*
         //     *accessing Stock class

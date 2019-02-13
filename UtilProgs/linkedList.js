@@ -1,3 +1,15 @@
+/****************************************************************
+ * 
+ * Execution    :Default node   cmd>node linkedList.js
+ * Purpose      :To create class for linkedlist.
+ * 
+ * @description
+ * @file        :linkedList.js
+ * @author name :Deepthi V <deepthiv286@gmail.com>
+ * @version     :1.0
+ * @since       :01/02/2019
+ * 
+ ***************************************************************/
 class Node {
     /*
     *node class with a parameterized constructor
@@ -180,15 +192,48 @@ class LinkedList {
        }
        return str;
     }
-    printLL(){
-       
-        var temp=this.head;
-        while(temp){
-            var str="";
-            str=str+"name: "+temp.data.name+", share:"+temp.data.share+", price: "+temp.data.price;
-            console.log(str);
-            temp=temp.next
+    printLL()
+    {
+        var arr = [];
+        if(this.head == null)
+        {
+            return null;
         }
+        else{
+            var temp = this.head;
+            while(temp)
+            {
+                arr.push(temp.data);
+                temp = temp.next;
+            }
+            return arr;
+        }
+    }
+    removeLL(ele)
+    {
+        var temp = this.head;
+        var prev = null;
+        while(temp!=null)
+        {
+            var stock= temp.data;
+            if(stock.name == ele)
+            {
+                if(prev == null)
+                {
+                    this.head = temp.next;
+                }
+                else
+                {
+                    prev.next = temp.next;
+                }
+                this.size--;
+                return temp.data;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        return -1;
+    }
 }
-}
+
 module.exports = {Node,LinkedList}

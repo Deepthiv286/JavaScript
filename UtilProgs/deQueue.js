@@ -1,3 +1,15 @@
+/****************************************************************
+ * 
+ * Execution    :Default node   cmd>node deQueue.js
+ * Purpose      :To create class for deque.
+ * 
+ * @description
+ * @file        :deQueue.js
+ * @author name :Deepthi V <deepthiv286@gmail.com>
+ * @version     :1.0
+ * @since       :01/02/2019
+ * 
+ ***************************************************************/
 class DeQue {
     /*
     *deQueue class with empty arguement constructor

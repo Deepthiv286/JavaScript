@@ -32,7 +32,10 @@ function regexExpression() {
             fullName = read.question("Enter the full name : ");
         }
         var mobileNumber = read.question("Enter the mobile number : ");
-        if(isNaN(mobileNumber) || mobileNumber.length != 10)
+        /*
+        *checks if the input is in the format
+        */
+        if(mobileNumber<0 && isNaN(mobileNumber) || mobileNumber.length != 10)
         {
             console.log("Enter 10 digit numbers only");
             mobileNumber = read.question("Enter the mobile number : ");
@@ -41,7 +44,6 @@ function regexExpression() {
         /*
         *invoking replaceUsingRegex function
         */
-
     } catch (error) {
         console.log(error.message);
     }

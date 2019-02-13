@@ -22,7 +22,7 @@ var object = JSON.parse(file);
  *
  * 
 */
-class inventoryManager {
+class InventoryManager {
 
     constructor() {
 
@@ -39,13 +39,28 @@ class inventoryManager {
     }
     add(data) {
         var name = read.question("Enter the name of the stock to add : ");
+        while(!isNaN(name))
+        {
+            console.log("Enter string only");
+            name = read.question("Enter the name of the stock to add : ");
+        }
         while(this.getName(data).includes(name))
         {
             console.log("Name already exists");
             name = read.question("Enter a different stock name : ");
         }
         var shares = read.questionInt("Enter number of shares : ");
+        while(shares<0)
+        {
+            console.log("Enter positive value");
+            shares = read.questionInt("Enter number of shares : ");
+        }
         var sharePrice = read.questionInt("Enter the price of the shares : ");
+        while(sharePrice<0)
+        {
+            console.log("Enter positive value");
+            sharePrice = read.questionInt("Enter the price of the shares : ");
+        }
         data.Stock.push(
             {
                 "name": name,
@@ -59,6 +74,11 @@ class inventoryManager {
 
     remove(data) {
         var name = read.question("Enter the name of the stock to remove :");
+        while(!isNaN(name))
+        {
+            console.log("Enter string only");
+            name = read.question("Enter the name of the stock to add : ");
+        }
        while(!this.getName(data).includes(name))
         {
             console.log("Name doesn't exist");
@@ -69,9 +89,9 @@ class inventoryManager {
                 var index = data.Stock.indexOf(data.Stock[i]);
                 data.Stock.splice(index, 1);
             }
-            var d = fs.writeFileSync('stockPortfolio.json', JSON.stringify(data));
+            fs.writeFileSync('stockPortfolio.json', JSON.stringify(data));
            
-            //return;
+           
         }
         console.log("Deleted successfully");
     }
@@ -110,4 +130,4 @@ class inventoryManager {
         return;
     }*/
 }
-module.exports = { inventoryManager}
+module.exports = { InventoryManager}

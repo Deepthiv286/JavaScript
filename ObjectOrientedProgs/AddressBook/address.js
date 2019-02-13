@@ -1,7 +1,7 @@
 /****************************************************************
  * 
  * Execution    :Default node   cmd>node address.js
- * Purpose      :To 
+ * Purpose      :To design an address book.
  * 
  * @description
  * @file        :address.js
@@ -30,10 +30,11 @@ function addressBook() {
         /*
         *accessing Address class
         */
-        while (choice != 3) {
+        while (choice != 4) {
             console.log("1:Create address profile");
-            console.log("2:Open address book");
-            console.log("3:Exit");
+            console.log("2:Open/Print address book");
+            console.log("3:Edit address");
+            console.log("4:Exit");
             var choice = read.questionInt("Please enter your choice: ");
             /*
             *accessing functions of Address class
@@ -46,10 +47,12 @@ function addressBook() {
                     address.openProfile(details);
                     break;
                 case 3:
+                    address.editProfile(details);
+                case 4:
                     console.log("Exiting.....");
                     break;
                 default:
-                    console.log("Enter choice within 1-3");
+                    console.log("Enter choice within 1-4");
             }
         }
     } catch (error) {
