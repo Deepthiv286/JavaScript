@@ -63,7 +63,7 @@ function stock() {
         // console.log("Total value of the stock = "+total);
         var fs = require('fs');
         var data = fs.readFileSync('stockPortfolio.json', 'utf8');
-        var details = JSON.parse(data); 
+        var details = JSON.parse(data);
         util.stockReport(details);
         /*
         *accessing stockReport function

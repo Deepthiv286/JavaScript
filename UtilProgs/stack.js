@@ -166,21 +166,16 @@ class StackLinkedList {
         this.size--;
         return data;
     }
-    removeSLL(ele)
-    {
+    removeSLL(ele) {
         var temp = this.head;
         var prev = null;
-        while(temp!=null)
-        {
-            var stock= temp.data;
-            if(stock.name == ele)
-            {
-                if(prev == null)
-                {
+        while (temp != null) {
+            var stock = temp.data;
+            if (stock.name == ele) {
+                if (prev == null) {
                     this.head = temp.next;
                 }
-                else
-                {
+                else {
                     prev.next = temp.next;
                 }
                 this.size--;
@@ -203,17 +198,14 @@ class StackLinkedList {
         }
         return str;
     }
-    printSLL()
-    {
+    printSLL() {
         var arr = [];
-        if(this.head == null)
-        {
+        if (this.head == null) {
             return null;
         }
-        else{
+        else {
             var temp = this.head;
-            while(temp)
-            {
+            while (temp) {
                 arr.push(temp.data);
                 temp = temp.next;
             }
@@ -221,4 +213,4 @@ class StackLinkedList {
         }
     }
 }
-module.exports = {Node,Stack,StackLinkedList}
+module.exports = { Node, Stack, StackLinkedList }

@@ -48,20 +48,18 @@ class CompanyShares {
             symbol = read.question("Enter the symbol : ");
         }
         var share = read.questionInt("Enter the share : ");
-        while(share<0)
-        {
+        while (share < 0) {
             console.log("Enter positive value");
             share = read.questionInt("Enter the share : ");
         }
         var price = read.questionInt("Enter the price : ");
-        while(price<0)
-        {
+        while (price < 0) {
             console.log("Enter positive value");
             price = read.questionInt("Enter the price : ");
         }
         this.stock.add({
             name: name,
-            symbol:symbol,
+            symbol: symbol,
             share: share,
             price: price
         });

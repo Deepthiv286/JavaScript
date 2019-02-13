@@ -38,34 +38,33 @@ function stockAccount() {
         /*
         *creating StockAccount object
         */
-       while(choice!=5)
-       {
-        console.log("Press 1 to create account:");
-        console.log("Press 2 to buy shares");
-        console.log("Press 3 to sell shares");
-        console.log("Press 4 to see the customer and company details");
-        console.log("Press 5 to exit");
-        var choice = read.questionInt("Enter your choice : ");
-        switch (choice) {
-            case 1:
-                stockAccount.createStock(customer);
-                break;
-            case 2:
-                stockAccount.buy(customer, company);
-                break;
-            case 3:
-                stockAccount.sell(customer, company);
-                break;
-            case 4:
-                stockAccount.print(customer, company);
-                break;
-            case 5:console.log("Exiting.....");
-                break;
-            default:console.log("Enter choice within 1-4");
-                break;
+        while (choice != 5) {
+            console.log("Press 1 to create account:");
+            console.log("Press 2 to buy shares");
+            console.log("Press 3 to sell shares");
+            console.log("Press 4 to see the customer and company details");
+            console.log("Press 5 to exit");
+            var choice = read.questionInt("Enter your choice : ");
+            switch (choice) {
+                case 1:
+                    stockAccount.createStock(customer);
+                    break;
+                case 2:
+                    stockAccount.buy(customer, company);
+                    break;
+                case 3:
+                    stockAccount.sell(customer, company);
+                    break;
+                case 4:
+                    stockAccount.print(customer, company);
+                    break;
+                case 5: console.log("Exiting.....");
+                    break;
+                default: console.log("Enter choice within 1-4");
+                    break;
+            }
         }
-       }
-        
+
     }
     catch (err) {
         console.log(err.message);

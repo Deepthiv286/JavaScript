@@ -35,8 +35,7 @@ function regexExpression() {
         /*
         *checks if the input is in the format
         */
-        if(mobileNumber<0 && isNaN(mobileNumber) || mobileNumber.length != 10)
-        {
+        if (mobileNumber < 0 && isNaN(mobileNumber) || mobileNumber.length != 10) {
             console.log("Enter 10 digit numbers only");
             mobileNumber = read.question("Enter the mobile number : ");
         }
