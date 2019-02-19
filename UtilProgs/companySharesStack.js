@@ -15,7 +15,7 @@ var file = require("fs");
 var access = require("../UtilProgs/stack");
 class CompanySharesStack {
     constructor() {
-        this.stock = new access.StackLinkedList
+        this.stock = new access.StackLinkedList;
         try {
             var data = JSON.parse(
                 file.readFileSync("/home/admin1/Deeps/ObjectOrientedProgs/Commercial/company.json"))

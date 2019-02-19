@@ -53,6 +53,7 @@ function addressBook() {
                     break;
                 default:
                     console.log("Enter choice within 1-4");
+                    break;
             }
         }
     } catch (error) {
