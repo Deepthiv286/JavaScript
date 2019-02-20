@@ -1,5 +1,5 @@
 //const access = require('./exampleClass');
-interface Sample 
+interface Sample implements Example
 {
     
     print(num);

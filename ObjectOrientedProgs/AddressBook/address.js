@@ -24,7 +24,7 @@ var details = JSON.parse(file);
  *@function: Performs CRUD(create,retrieve,update,delete) actions.
  * 
 */
-function addressBook() {
+function address() {
     try {
         var address = new access.Address;
         /*
@@ -60,4 +60,4 @@ function addressBook() {
         console.log(error.message);
     }
 }
-addressBook();
+address();

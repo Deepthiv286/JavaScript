@@ -32,6 +32,9 @@ class CompanySharesStack {
      */
     addToStack() {
         var flag = false;
+        /**
+         * validation
+         */
         do {
             var name = read.question("Enter the name want to add : ");
             if (!isNaN(name)) {

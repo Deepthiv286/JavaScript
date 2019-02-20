@@ -1,8 +1,8 @@
 class Example
 {
-    constructor(number)
+    constructor(num)
     {
-        this.number = number;
+        this.num = num;
     }
     print(number)
     {
